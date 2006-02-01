@@ -2,7 +2,7 @@
 
 $tables = array(
 
-'tiki_user_bookmarks_urls' => "
+'tidbits_user_bookmarks_urls' => "
   url_id I4 AUTO PRIMARY,
   name C(30),
   url C(250),
@@ -13,7 +13,7 @@ $tables = array(
   CONSTRAINTS ', CONSTRAINT `tiki_user_bookmarks_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_user_menus' => "
+'tidbits_user_menus' => "
   menu_id I4 AUTO PRIMARY,
   user_id I4 NOTNULL,
   url C(250),
@@ -23,7 +23,7 @@ $tables = array(
   CONSTRAINTS ', CONSTRAINT `tiki_user_menus_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_user_tasks' => "
+'tidbits_user_tasks' => "
   task_id I4 AUTO PRIMARY,
   user_id I4 NOTNULL,
   title C(250),
@@ -36,14 +36,14 @@ $tables = array(
   CONSTRAINT ', CONSTRAINT `tiki_user_tasks_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_user_bookmarks_folders' => "
+'tidbits_user_bookmarks_folders' => "
   folder_id I4 AUTO PRIMARY,
   parent_id I4,
   user_id I4 PRIMARY,
   name C(30)
 ",
 
-'tiki_user_postings' => "
+'tidbits_user_postings' => "
   user_id I4 PRIMARY,
   posts I8,
   last I8,
@@ -52,20 +52,20 @@ $tables = array(
   CONSTRAINTS ', CONSTRAINT `tiki_user_postings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_user_votings' => "
+'tidbits_user_votings' => "
   user_id I4 PRIMARY,
   id C(160) PRIMARY
   CONSTRAINTS ', CONSTRAINT `tiki_user_votings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_userpoints' => "
+'tidbits_userpoints' => "
   user_id I4,
   points decimal(8,2),
   voted I4 DEFAULT NULL
   CONSTRAINTS ', CONSTRAINT `tiki_userpoints_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_userfiles' => "
+'tidbits_userfiles' => "
   file_id I4 AUTO PRIMARY,
   user_id I4 NOTNULL,
   name C(200),
@@ -80,7 +80,7 @@ $tables = array(
   CONSTRAINTS ', CONSTRAINT `tiki_userfiles_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tiki_user_modules' => "
+'tidbits_user_modules' => "
   name C(200) PRIMARY,
   title C(40),
   data X
