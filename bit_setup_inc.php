@@ -3,6 +3,7 @@
 
 
 	if( $gBitUser->isRegistered() && $gBitSystem->getPreference('feature_usermenu') == 'y' ) {
+
 		if (!isset($_SESSION['usermenu'])) {
 			include_once(TIDBITS_PKG_PATH . 'user_menu_lib.php');
 
