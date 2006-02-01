@@ -91,6 +91,27 @@ $tables = array(
 	fortune C(255)
 ",
 
+'tidbits_banning' => "
+	ban_id I4 AUTO PRIMARY,
+	mode C(4),
+	title C(200),
+	ip1 C(3),
+	ip2 C(3),
+	ip3 C(3),
+	ip4 C(3),
+	`user` C(40),
+	date_from T NOTNULL,
+	date_to T NOTNULL,
+	use_dates C(1),
+	created I8,
+	message X
+",
+
+'tiki_banning_sections' => "
+	ban_id I4 PRIMARY,
+	section C(100) PRIMARY
+",
+
 
 
 );
