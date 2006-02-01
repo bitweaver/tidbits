@@ -109,7 +109,7 @@ $gBitInstaller->registerUserPermissions( TIDBITS_PKG_NAME, array(
 	//array('bit_p_user_group_members', 'Can assign users to personal groups', 'registered', TIDBITS_PKG_NAME),
 	//array('bit_p_user_group_subgroups', 'Can include other groups in groups', 'editors', TIDBITS_PKG_NAME),
 	array('bit_p_create_bookmarks', 'Can create user bookmarksche user bookmarks', 'registered', TIDBITS_PKG_NAME),
-	//array('bit_p_configure_modules', 'Can configure modules', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_configure_modules', 'Can configure modules', 'registered', TIDBITS_PKG_NAME),
 	array('bit_p_cache_bookmarks', 'Can cache user bookmarks', 'admin', TIDBITS_PKG_NAME),
 	array('bit_p_usermenu', 'Can create items in personal menu', 'registered', TIDBITS_PKG_NAME),
 	array('bit_p_tasks', 'Can use tasks', 'registered', TIDBITS_PKG_NAME),
