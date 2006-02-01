@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/my_files.php,v 1.1 2006/01/31 16:59:55 bitweaver Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/my_files.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: my_files.php,v 1.1 2006/01/31 16:59:55 bitweaver Exp $
+ * $Id: my_files.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
  * @package users
  * @subpackage functions
  */
@@ -34,5 +34,5 @@ if (!empty($_REQUEST['deleteAttachment'])) {
 	$attachmentId = $_REQUEST['deleteAttachment'];
 }
 
-$gBitSystem->display('bitpackage:profile/my_files.tpl');
+$gBitSystem->display('bitpackage:tidbits/my_files.tpl');
 ?>

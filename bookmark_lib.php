@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.1 2006/01/31 16:59:55 bitweaver Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,7 +12,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmark_lib.php,v 1.1 2006/01/31 16:59:55 bitweaver Exp $
+ * $Id: bookmark_lib.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
  * @package users
  */
 
@@ -27,11 +27,11 @@ class BookmarkLib extends BitBase {
 	function get_folder_path($folder_id, $user_id) {
 		$path = '';
 		$info = $this->get_folder($folder_id, $user_id);
-		$path = '<a href='.USERS_PKG_URL.'bookmarks.php?parent_id="' . $info["folder_id"] . '">' . $info["name"] . '</a>';
+		$path = '<a href='.TIDBITS_PKG_URL.'bookmarks.php?parent_id="' . $info["folder_id"] . '">' . $info["name"] . '</a>';
 		while ($info["parent_id"] != 0) {
 			$info = $this->get_folder($info["parent_id"], $user_id);
 			$path
-				= $path = '<a href='.USERS_PKG_URL.'bookmarks.php?parent_id="' . $info["folder_id"] . '">' . $info["name"] . '</a>' . '>' . $path;
+				= $path = '<a href='.TIDBITS_PKG_URL.'bookmarks.php?parent_id="' . $info["folder_id"] . '">' . $info["name"] . '</a>' . '>' . $path;
 		}
 		return $path;
 	}

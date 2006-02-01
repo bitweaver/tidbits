@@ -17,7 +17,7 @@
 		<tr>
 			<td><a href="{$userFile.source_url}"><img src="{$userFile.thumbnail_url.small}"/></a></td>
 			<td>{$userFile.wiki_plugin_link}</td>
-			<td><a href="javascript:return confirm('{tr}Are you sure you want to delete {$userFile.filename}? It will be removed from all content it is attached to.{/tr}','{$smarty.const.USERS_PKG_URL}my_files.php?deleteAttachment={$userFile.attachment_id}')">{biticon ipackage="liberty" iname="delete" iexplain="Delete"}</a></td>
+			<td><a href="javascript:return confirm('{tr}Are you sure you want to delete {$userFile.filename}? It will be removed from all content it is attached to.{/tr}','{$smarty.const.TIDBITS_PKG_URL}my_files.php?deleteAttachment={$userFile.attachment_id}')">{biticon ipackage="liberty" iname="delete" iexplain="Delete"}</a></td>
 		</tr>
 		<tr><td colspan="3">{$userFile.filename}</td></tr>
 		<tr><td colspan="3">&nbsp;</td></tr>

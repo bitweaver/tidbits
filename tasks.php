@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/tasks.php,v 1.1 2006/01/31 16:59:55 bitweaver Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/tasks.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: tasks.php,v 1.1 2006/01/31 16:59:55 bitweaver Exp $
+ * $Id: tasks.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
  * @package users
  * @subpackage functions
  */
@@ -159,5 +159,5 @@ for ($i = 0; $i <= 100; $i += 10) {
 }
 $gBitSmarty->assign_by_ref('percs', $percs);
 
-$gBitSystem->display( 'bitpackage:profile/user_tasks.tpl');
+$gBitSystem->display( 'bitpackage:tidbits/user_tasks.tpl');
 ?>
