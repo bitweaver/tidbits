@@ -91,7 +91,7 @@ $tables = array(
 global $gBitInstaller;
 
 foreach( array_keys( $tables ) AS $tableName ) {
-	$gBitInstaller->registerSchemaTable( USERS_PKG_NAME, $tableName, $tables[$tableName], TRUE );
+	$gBitInstaller->registerSchemaTable( TIDBITS_PKG_NAME, $tableName, $tables[$tableName], FALSE );
 }
 
 $indices = array (
@@ -115,9 +115,9 @@ $indices = array (
 
 
 
-$gBitInstaller->registerSchemaIndexes( USERS_PKG_NAME, $indices );
+$gBitInstaller->registerSchemaIndexes( TIDBITS_PKG_NAME, $indices );
 
-$gBitInstaller->registerPackageInfo( USERS_PKG_NAME, array(
+$gBitInstaller->registerPackageInfo( TIDBITS_PKG_NAME, array(
 	'description' => "The users package contains all user information and gives you the possiblity to assign permissions to groups of users.",
 	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
 	'version' => '0.1',
@@ -130,81 +130,81 @@ $sequences = array (
 	'users_users_user_id_seq' => array( 'start' => 2 ),
 	'users_groups_id_seq' => array( 'start' => 4 )
 );
-$gBitInstaller->registerSchemaSequences( USERS_PKG_NAME, $sequences );
+$gBitInstaller->registerSchemaSequences( TIDBITS_PKG_NAME, $sequences );
 
 // ### Default MenuOptions
-$gBitInstaller->registerMenuOptions( USERS_PKG_NAME, array(
-	array(42,'o','My files', USERS_PKG_NAME.'userfiles.php',95,'feature_userfiles','bit_p_userfiles','Registered')
+$gBitInstaller->registerMenuOptions( TIDBITS_PKG_NAME, array(
+	array(42,'o','My files', TIDBITS_PKG_NAME.'userfiles.php',95,'feature_userfiles','bit_p_userfiles','Registered')
 ) );
 
 // ### Default Preferences
-$gBitInstaller->registerPreferences( USERS_PKG_NAME, array(
-	array(USERS_PKG_NAME,'webserverauth','n'),
-	array(USERS_PKG_NAME,'auth_create_user_auth','n'),
-	array(USERS_PKG_NAME,'auth_create_gBitDbUser','n'),
-	array(USERS_PKG_NAME,'auth_ldap_adminpass',''),
-	array(USERS_PKG_NAME,'auth_ldap_adminuser',''),
-	array(USERS_PKG_NAME,'auth_ldap_basedn',''),
-	array(USERS_PKG_NAME,'auth_ldap_groupattr','cn'),
-	array(USERS_PKG_NAME,'auth_ldap_groupdn',''),
-	array(USERS_PKG_NAME,'auth_ldap_groupoc','groupOfUniqueNames'),
-	array(USERS_PKG_NAME,'auth_ldap_host','localhost'),
-	array(USERS_PKG_NAME,'auth_ldap_memberattr','uniqueMember'),
-	array(USERS_PKG_NAME,'auth_ldap_memberisdn','n'),
-	array(USERS_PKG_NAME,'auth_ldap_port','389'),
-	array(USERS_PKG_NAME,'auth_ldap_scope','sub'),
-	array(USERS_PKG_NAME,'auth_ldap_userattr','uid'),
-	array(USERS_PKG_NAME,'auth_ldap_userdn',''),
-	array(USERS_PKG_NAME,'auth_ldap_useroc','inetOrgPerson'),
-	array(USERS_PKG_NAME,'auth_method','tiki'),
-	array(USERS_PKG_NAME,'auth_skip_admin','y'),
-	array(USERS_PKG_NAME,'allowRegister','y'),
-	array(USERS_PKG_NAME,'feature_userfiles','n'),
-	array(USERS_PKG_NAME,'forgotPass','y'),
-	array(USERS_PKG_NAME,'eponymousGroups','n'),
-	array(USERS_PKG_NAME,'modallgroups','y'),
-	array(USERS_PKG_NAME,'pass_chr_num','n'),
-	array(USERS_PKG_NAME,'pass_due','999'),
-	array(USERS_PKG_NAME,'registerPasscode',''),
-	array(USERS_PKG_NAME,'rememberme','disabled'),
-	array(USERS_PKG_NAME,'remembertime','7200'),
-	array(USERS_PKG_NAME,'rnd_num_reg','n'),
-	array(USERS_PKG_NAME,'userfiles_quota','30'),
-	array(USERS_PKG_NAME,'uf_use_db','y'),
-	array(USERS_PKG_NAME,'uf_use_dir',''),
-	array(USERS_PKG_NAME,'useRegisterPasscode','n'),
-	array(USERS_PKG_NAME,'validateUsers','n'),
-	array(USERS_PKG_NAME,'validateEmail','n'),
-	array(USERS_PKG_NAME,'min_pass_length','4'),
-	array(USERS_PKG_NAME,'feature_clear_passwords','n'),
-	array(USERS_PKG_NAME,'feature_custom_home','n'),
-	array(USERS_PKG_NAME,'feature_user_bookmarks','n'),
-	array(USERS_PKG_NAME,'feature_tasks','n'),
-	array(USERS_PKG_NAME,'feature_usermenu','n'),
-	array(USERS_PKG_NAME,'feature_userPreferences','y'),
-	array(USERS_PKG_NAME,'display_name','real_name'),
-	array(USERS_PKG_NAME,'change_language','y'),
-	array(USERS_PKG_NAME,'case_sensitive_login','y'),
+$gBitInstaller->registerPreferences( TIDBITS_PKG_NAME, array(
+	array(TIDBITS_PKG_NAME,'webserverauth','n'),
+	array(TIDBITS_PKG_NAME,'auth_create_user_auth','n'),
+	array(TIDBITS_PKG_NAME,'auth_create_gBitDbUser','n'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_adminpass',''),
+	array(TIDBITS_PKG_NAME,'auth_ldap_adminuser',''),
+	array(TIDBITS_PKG_NAME,'auth_ldap_basedn',''),
+	array(TIDBITS_PKG_NAME,'auth_ldap_groupattr','cn'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_groupdn',''),
+	array(TIDBITS_PKG_NAME,'auth_ldap_groupoc','groupOfUniqueNames'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_host','localhost'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_memberattr','uniqueMember'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_memberisdn','n'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_port','389'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_scope','sub'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_userattr','uid'),
+	array(TIDBITS_PKG_NAME,'auth_ldap_userdn',''),
+	array(TIDBITS_PKG_NAME,'auth_ldap_useroc','inetOrgPerson'),
+	array(TIDBITS_PKG_NAME,'auth_method','tiki'),
+	array(TIDBITS_PKG_NAME,'auth_skip_admin','y'),
+	array(TIDBITS_PKG_NAME,'allowRegister','y'),
+	array(TIDBITS_PKG_NAME,'feature_userfiles','n'),
+	array(TIDBITS_PKG_NAME,'forgotPass','y'),
+	array(TIDBITS_PKG_NAME,'eponymousGroups','n'),
+	array(TIDBITS_PKG_NAME,'modallgroups','y'),
+	array(TIDBITS_PKG_NAME,'pass_chr_num','n'),
+	array(TIDBITS_PKG_NAME,'pass_due','999'),
+	array(TIDBITS_PKG_NAME,'registerPasscode',''),
+	array(TIDBITS_PKG_NAME,'rememberme','disabled'),
+	array(TIDBITS_PKG_NAME,'remembertime','7200'),
+	array(TIDBITS_PKG_NAME,'rnd_num_reg','n'),
+	array(TIDBITS_PKG_NAME,'userfiles_quota','30'),
+	array(TIDBITS_PKG_NAME,'uf_use_db','y'),
+	array(TIDBITS_PKG_NAME,'uf_use_dir',''),
+	array(TIDBITS_PKG_NAME,'useRegisterPasscode','n'),
+	array(TIDBITS_PKG_NAME,'validateUsers','n'),
+	array(TIDBITS_PKG_NAME,'validateEmail','n'),
+	array(TIDBITS_PKG_NAME,'min_pass_length','4'),
+	array(TIDBITS_PKG_NAME,'feature_clear_passwords','n'),
+	array(TIDBITS_PKG_NAME,'feature_custom_home','n'),
+	array(TIDBITS_PKG_NAME,'feature_user_bookmarks','n'),
+	array(TIDBITS_PKG_NAME,'feature_tasks','n'),
+	array(TIDBITS_PKG_NAME,'feature_usermenu','n'),
+	array(TIDBITS_PKG_NAME,'feature_userPreferences','y'),
+	array(TIDBITS_PKG_NAME,'display_name','real_name'),
+	array(TIDBITS_PKG_NAME,'change_language','y'),
+	array(TIDBITS_PKG_NAME,'case_sensitive_login','y'),
 	array('common', 'feature_user_watches','n'),
 ) );
 
 // ### Default Permissions
-$gBitInstaller->registerUserPermissions( USERS_PKG_NAME, array(
-	array('bit_p_userfiles', 'Can upload personal files', 'registered', USERS_PKG_NAME),
-	array('bit_p_user_group_perms', 'Can assign permissions to personal groups', 'editors', USERS_PKG_NAME),
-	array('bit_p_user_group_members', 'Can assign users to personal groups', 'registered', USERS_PKG_NAME),
-	array('bit_p_user_group_subgroups', 'Can include other groups in groups', 'editors', USERS_PKG_NAME),
-	array('bit_p_create_bookmarks', 'Can create user bookmarksche user bookmarks', 'registered', USERS_PKG_NAME),
-	array('bit_p_configure_modules', 'Can configure modules', 'registered', USERS_PKG_NAME),
-	array('bit_p_cache_bookmarks', 'Can cache user bookmarks', 'admin', USERS_PKG_NAME),
-	array('bit_p_usermenu', 'Can create items in personal menu', 'registered', USERS_PKG_NAME),
-	array('bit_p_tasks', 'Can use tasks', 'registered', USERS_PKG_NAME),
-	array('bit_p_admin_users', 'Can edit the information for other users', 'admin', USERS_PKG_NAME),
-	array('bit_p_view_tabs_and_tools', 'Can view tab and tool links', 'basic', USERS_PKG_NAME),
-	array('bit_p_custom_home_theme', 'Can modify user homepage theme', 'editors', USERS_PKG_NAME),
-	array('bit_p_custom_home_layout', 'Can modify user homepage layout', 'editors', USERS_PKG_NAME),
-	array('bit_p_custom_css', 'Can create custom style sheets', 'editors', USERS_PKG_NAME),
-	array('bit_p_create_personal_groups', 'Can create personal user groups', 'editors', USERS_PKG_NAME),
+$gBitInstaller->registerUserPermissions( TIDBITS_PKG_NAME, array(
+	array('bit_p_userfiles', 'Can upload personal files', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_user_group_perms', 'Can assign permissions to personal groups', 'editors', TIDBITS_PKG_NAME),
+	array('bit_p_user_group_members', 'Can assign users to personal groups', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_user_group_subgroups', 'Can include other groups in groups', 'editors', TIDBITS_PKG_NAME),
+	array('bit_p_create_bookmarks', 'Can create user bookmarksche user bookmarks', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_configure_modules', 'Can configure modules', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_cache_bookmarks', 'Can cache user bookmarks', 'admin', TIDBITS_PKG_NAME),
+	array('bit_p_usermenu', 'Can create items in personal menu', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_tasks', 'Can use tasks', 'registered', TIDBITS_PKG_NAME),
+	array('bit_p_admin_users', 'Can edit the information for other users', 'admin', TIDBITS_PKG_NAME),
+	array('bit_p_view_tabs_and_tools', 'Can view tab and tool links', 'basic', TIDBITS_PKG_NAME),
+	array('bit_p_custom_home_theme', 'Can modify user homepage theme', 'editors', TIDBITS_PKG_NAME),
+	array('bit_p_custom_home_layout', 'Can modify user homepage layout', 'editors', TIDBITS_PKG_NAME),
+	array('bit_p_custom_css', 'Can create custom style sheets', 'editors', TIDBITS_PKG_NAME),
+	array('bit_p_create_personal_groups', 'Can create personal user groups', 'editors', TIDBITS_PKG_NAME),
 ) );
 
 

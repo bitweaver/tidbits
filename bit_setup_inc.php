@@ -1,5 +1,5 @@
 <?php
-	$gBitSystem->registerPackage( 'tidbits', dirname( __FILE__).'/', FALSE );
+	$gBitSystem->registerPackage( 'tidbits', dirname( __FILE__).'/');
 
 
 	if( $gBitUser->isRegistered() && $gBitSystem->getPreference('feature_usermenu') == 'y' ) {
