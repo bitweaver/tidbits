@@ -107,7 +107,7 @@ $tables = array(
 	message X
 ",
 
-'tiki_banning_sections' => "
+'tidbits_banning_sections' => "
 	ban_id I4 PRIMARY,
 	section C(100) PRIMARY
 ",
