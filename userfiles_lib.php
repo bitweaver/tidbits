@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.2 2006/02/01 16:18:24 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.3 2006/02/02 10:32:23 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: userfiles_lib.php,v 1.2 2006/02/01 16:18:24 squareing Exp $
+ * $Id: userfiles_lib.php,v 1.3 2006/02/02 10:32:23 squareing Exp $
  * @package users
  */
 
@@ -25,9 +25,7 @@ class UserFilesLib extends BitBase {
 		if ($gBitUser->isAdmin()) {
 			return 0;
 		}
-		$part1 = $this->mDb->getOne("select sum(`filesize`) from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=?",array($user));
-		$part2 = $this->mDb->getOne("select sum(`size`) from `".BIT_DB_PREFIX."tiki_user_notes` where `user_id`=?",array($user));
-		return $part1 + $part2;
+		return $this->mDb->getOne("select sum(`filesize`) from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=?",array($user));
 	}
 	function upload_userfile($user, $name, $filename, $filetype, $filesize, $data, $path) {
 		global $gBitSystem;

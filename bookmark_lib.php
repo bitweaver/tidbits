@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.3 2006/02/01 16:18:23 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.4 2006/02/02 10:32:23 squareing Exp $
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,7 +12,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmark_lib.php,v 1.3 2006/02/01 16:18:23 squareing Exp $
+ * $Id: bookmark_lib.php,v 1.4 2006/02/02 10:32:23 squareing Exp $
  * @package users
  */
 
@@ -103,7 +103,7 @@ class BookmarkLib extends BitBase {
 	}
 	function refresh_url($url_id) {
 		$info = $this->get_url($url_id);
-		if (strstr($info["url"], 'tiki_') || strstr($info["url"], 'messu_'))
+		if (strstr($info["url"], 'bit_') || strstr($info["url"], 'messages_'))
 			return false;
 		@$fp = fopen($info["url"], "r");
 		if (!$fp)
