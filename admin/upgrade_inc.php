@@ -16,7 +16,6 @@ array( 'DATADICT' => array(
 		'tiki_user_votings'           => 'tidbits_user_votings',
 		'tiki_userpoints'             => 'tidbits_userpoints',
 		'tiki_userfiles'              => 'tidbits_userfiles',
-		'tiki_user_modules'           => 'tidbits_user_modules',
 	)),
 )),
 		)

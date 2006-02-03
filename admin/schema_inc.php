@@ -80,12 +80,6 @@ $tables = array(
   CONSTRAINTS ', CONSTRAINT `userfiles_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tidbits_user_modules' => "
-  name C(200) PRIMARY,
-  title C(40),
-  data X
-",
-
 'tidbits_fortune_cookies' => "
 	forunte_id I4 AUTO PRIMARY,
 	fortune C(255)
