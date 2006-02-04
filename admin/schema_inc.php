@@ -58,26 +58,11 @@ $tables = array(
   CONSTRAINT ', CONSTRAINT `user_votings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
-'tidbits_userpoints' => "
+'tidbits_user_points' => "
   user_id I4,
   points decimal(8,2),
   voted I4 DEFAULT NULL
   CONSTRAINT ', CONSTRAINT `userpoints_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
-",
-
-'tidbits_userfiles' => "
-  file_id I4 AUTO PRIMARY,
-  user_id I4 NOTNULL,
-  name C(200),
-  filename C(200),
-  filetype C(200),
-  filesize C(200),
-  data B,
-  hits I4,
-  is_file C(1),
-  path C(255),
-  created I8
-  CONSTRAINT ', CONSTRAINT `userfiles_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_fortune_cookies' => "
