@@ -10,7 +10,7 @@ $tables = array(
   last_updated I8,
   folder_id I4 NOTNULL,
   user_id I4 NOTNULL
-  CONSTRAINTS ', CONSTRAINT `user_bookmarks_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
+  CONSTRAINT ', CONSTRAINT `user_bookmarks_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_user_menus' => "
@@ -20,7 +20,7 @@ $tables = array(
   name C(40),
   position I4,
   mode C(1)
-  CONSTRAINTS ', CONSTRAINT `user_menus_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
+  CONSTRAINT ', CONSTRAINT `user_menus_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_user_tasks' => "
@@ -49,20 +49,20 @@ $tables = array(
   last I8,
   first I8,
   level I4
-  CONSTRAINTS ', CONSTRAINT `user_postings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
+  CONSTRAINT ', CONSTRAINT `user_postings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_user_votings' => "
   user_id I4 PRIMARY,
   id C(160) PRIMARY
-  CONSTRAINTS ', CONSTRAINT `user_votings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
+  CONSTRAINT ', CONSTRAINT `user_votings_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_userpoints' => "
   user_id I4,
   points decimal(8,2),
   voted I4 DEFAULT NULL
-  CONSTRAINTS ', CONSTRAINT `userpoints_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
+  CONSTRAINT ', CONSTRAINT `userpoints_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_userfiles' => "
@@ -77,7 +77,7 @@ $tables = array(
   is_file C(1),
   path C(255),
   created I8
-  CONSTRAINTS ', CONSTRAINT `userfiles_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
+  CONSTRAINT ', CONSTRAINT `userfiles_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",
 
 'tidbits_fortune_cookies' => "
