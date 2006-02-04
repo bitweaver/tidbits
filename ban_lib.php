@@ -3,7 +3,7 @@
  * User access Banning Library
  *
  * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.1 2006/02/02 08:55:56 squareing Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.2 2006/02/04 23:32:52 squareing Exp $
  */
 
 /**
@@ -22,15 +22,15 @@ class BanLib extends BitBase {
 		$result = $this->mDb->query($query,array($ban_id));
 		$res = $result->fetchRow();
 		$aux = array();
-		$query2 = "select `section` from `".BIT_DB_PREFIX."tidbits_banning_sections` where `ban_id`=?";
+		$query2 = "select `package` from `".BIT_DB_PREFIX."tidbits_banning_packages` where `ban_id`=?";
 		$result2 = $this->mDb->query($query2,array($ban_id));
 		$aux = array();
 
 		while ($res2 = $result2->fetchRow()) {
-			$aux[] = $res2['section'];
+			$aux[] = $res2['package'];
 		}
 
-		$res['sections'] = $aux;
+		$res['packages'] = $aux;
 		return $res;
 	}
 
@@ -38,7 +38,7 @@ class BanLib extends BitBase {
 		$query = "delete from `".BIT_DB_PREFIX."tidbits_banning` where `ban_id`=?";
 
 		$this->mDb->query($query,array($ban_id));
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_banning_sections` where `ban_id`=?";
+		$query = "delete from `".BIT_DB_PREFIX."tidbits_banning_packages` where `ban_id`=?";
 		$this->mDb->query($query,array($ban_id));
 	}
 
@@ -71,14 +71,14 @@ class BanLib extends BitBase {
 		while ($res = $result->fetchRow()) {
 			$aux = array();
 
-			$query2 = "select * from `".BIT_DB_PREFIX."tidbits_banning_sections` where `ban_id`=?";
+			$query2 = "select * from `".BIT_DB_PREFIX."tidbits_banning_packages` where `ban_id`=?";
 			$result2 = $this->mDb->query($query2,array($res['ban_id']));
 
 			while ($res2 = $result2->fetchRow()) {
 				$aux[] = $res2;
 			}
 
-			$res['sections'] = $aux;
+			$res['packages'] = $aux;
 			$ret[] = $res;
 		}
 
@@ -112,7 +112,7 @@ class BanLib extends BitBase {
 	  primary key(ban_id)
 	  */
 	function replace_rule($ban_id, $mode, $title, $ip1, $ip2, $ip3, $ip4, $user, $date_from, $date_to, $use_dates, $message,
-		$sections) {
+		$packages) {
 
 		if ($ban_id) {
 			$query = " update `".BIT_DB_PREFIX."tidbits_banning` set
@@ -140,13 +140,13 @@ class BanLib extends BitBase {
 			$ban_id = $this->mDb->getOne("select max(`ban_id`) from `".BIT_DB_PREFIX."tidbits_banning` where `created`=?",array($now));
 		}
 
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_banning_sections` where `ban_id`=?";
+		$query = "delete from `".BIT_DB_PREFIX."tidbits_banning_packages` where `ban_id`=?";
 		$this->mDb->query($query,array($ban_id));
 
-		foreach ($sections as $section) {
-			$query = "insert into `".BIT_DB_PREFIX."tidbits_banning_sections`(`ban_id`,`section`) values(?,?)";
+		foreach ($packages as $package) {
+			$query = "insert into `".BIT_DB_PREFIX."tidbits_banning_packages`(`ban_id`,`package`) values(?,?)";
 
-			$this->mDb->query($query,array($ban_id,$section));
+			$this->mDb->query($query,array($ban_id,$package));
 		}
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.1 2006/02/02 08:55:56 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.2 2006/02/04 23:32:52 squareing Exp $
 
 // Copyright (c) 2002-2003, Luis Argerich, Garland Foster, Eduardo Polidor, et. al.
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
@@ -28,7 +28,7 @@ if (isset($_REQUEST['ban_id'])) {
 } else {
 	$_REQUEST['ban_id'] = 0;
 
-	$info['sections'] = array();
+	$info['packages'] = array();
 	$info['title'] = '';
 	$info['mode'] = 'user';
 	$info['ip1'] = 255;
@@ -62,12 +62,12 @@ if (isset($_REQUEST['save'])) {
 
 	$_REQUEST['date_from'] = mktime(0, 0, 0, $_REQUEST['date_fromMonth'], $_REQUEST['date_fromDay'], $_REQUEST['date_fromYear']);
 	$_REQUEST['date_to'] = mktime(0, 0, 0, $_REQUEST['date_toMonth'], $_REQUEST['date_toDay'], $_REQUEST['date_toYear']);
-	$sections = array_keys($_REQUEST['section']);
+	$packages = array_keys($_REQUEST['package']);
 	$banlib->replace_rule($_REQUEST['ban_id'], $_REQUEST['mode'], $_REQUEST['title'], $_REQUEST['ip1'], $_REQUEST['ip2'],
 		$_REQUEST['ip3'], $_REQUEST['ip4'], $_REQUEST['user'], $_REQUEST['date_from'], $_REQUEST['date_to'], $_REQUEST['use_dates'],
-		$_REQUEST['message'], $sections);
+		$_REQUEST['message'], $packages);
 
-	$info['sections'] = array();
+	$info['packages'] = array();
 	$info['title'] = '';
 	$info['mode'] = 'user';
 	$info['ip1'] = 255;
@@ -142,7 +142,7 @@ if ($offset > 0) {
 
 $gBitSmarty->assign_by_ref('items', $items["data"]);
 
-$sections = array(
+$packages = array(
 	'wiki',
 	'galleries',
 	'file_galleries',
@@ -167,7 +167,7 @@ $sections = array(
 	'charts'
 );
 
-$gBitSmarty->assign('sections', $sections);
+$gBitSmarty->assign('packages', $packages);
 
 
 $gBitSystem->display( 'bitpackage:kernel/admin_banning.tpl');
