@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/cached_bookmark.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/cached_bookmark.php,v 1.3 2006/02/06 22:56:51 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: cached_bookmark.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
+ * $Id: cached_bookmark.php,v 1.3 2006/02/06 22:56:51 squareing Exp $
  * @package users
  * @subpackage functions
  */
@@ -19,7 +19,7 @@
 require_once( '../bit_setup_inc.php' );
 include_once( TIDBITS_PKG_PATH.'bookmark_lib.php' );
 
-$gBitSystem->verifyFeature( 'feature_user_bookmarks' );
+$gBitSystem->verifyFeature( 'user_bookmarks' );
 
 if (!$gBitUser->isRegistered()) {
 	$gBitSmarty->assign('msg', tra("You must log in to use this feature"));

@@ -1,6 +1,6 @@
 <?php
 
-// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.4 2006/02/06 22:56:51 squareing Exp $
 
 // Copyright (c) 2002-2003, Luis Argerich, Garland Foster, Eduardo Polidor, et. al.
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
@@ -9,19 +9,9 @@ require_once( '../../bit_setup_inc.php' );
 
 include_once (TIDBITS_PKG_PATH.'ban_lib.php');
 
-if ($gBitSystem->getPreference('feature_banning') != 'y') {
-	$gBitSmarty->assign('msg', tra("This feature is disabled").": feature_banning");
+$gBitSystem->verifyFeature( 'banning' );
+$gBitSystem->verifyPermission( 'bit_p_admin_banning' );
 
-	$gBitSystem->display( 'error.tpl' );
-	die;
-}
-
-if (!$gBitUser->hasPermission( 'bit_p_admin_banning' )) {
-	$gBitSmarty->assign('msg', tra("Permission denied"));
-
-	$gBitSystem->display( 'error.tpl' );
-	die;
-}
 
 if (isset($_REQUEST['ban_id'])) {
 	$info = $banlib->get_rule($_REQUEST['ban_id']);
