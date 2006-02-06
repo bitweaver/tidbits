@@ -73,7 +73,7 @@
 {if $next_offset >= 0}
 &nbsp;[<a href="{$smarty.const.TIDBITS_PKG_URL}files.php?find={$find}&amp;offset={$next_offset}&amp;sort_mode={$sort_mode}">{tr}next{/tr}</a>]
 {/if}
-{if $direct_pagination eq 'y'}
+{if $gBitSystem->isFeatureActive( 'direct_pagination' )}
 <br />
 {section loop=$cant_pages name=foo}
 {assign var=selector_offset value=$smarty.section.foo.index|times:"$gBitSystemPrefs.max_records"}
