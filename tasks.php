@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/tasks.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/tasks.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: tasks.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
+ * $Id: tasks.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
  * @package users
  * @subpackage functions
  */
@@ -61,10 +61,10 @@ if (isset($_REQUEST["tasks_use_dates"])) {
 } else {
 	$tasks_use_dates = $gBitUser->getPreference( 'tasks_use_dates' );
 }
-$tasks_maxRecords = $gBitUser->getPreference('tasks_maxRecords', $maxRecords);
-$maxRecords = $tasks_maxRecords;
+$tasks_max_records = $gBitUser->getPreference('tasks_max_records', $max_records);
+$max_records = $tasks_max_records;
 $gBitSmarty->assign('tasks_use_dates', $tasks_use_dates);
-$gBitSmarty->assign('tasks_maxRecords', $tasks_maxRecords);
+$gBitSmarty->assign('tasks_max_records', $tasks_max_records);
 if ($_REQUEST["task_id"]) {
 	$info = $tasklib->get_task($gBitUser->mUserId, $_REQUEST["task_id"]);
 } else {
@@ -116,7 +116,7 @@ if (!isset($_REQUEST["offset"])) {
 }
 if (isset($_REQUEST['page'])) {
 	$page = &$_REQUEST['page'];
-	$offset = ($page - 1) * $maxRecords;
+	$offset = ($page - 1) * $max_records;
 }
 $gBitSmarty->assign_by_ref('offset', $offset);
 if (isset($_REQUEST["find"])) {
@@ -131,23 +131,23 @@ if (isset($_SESSION['thedate'])) {
 } else {
 	$pdate = $gBitSystem->getUTCTime();
 }
-$tasks = $tasklib->list_tasks($gBitUser->mUserId, $offset, $maxRecords, $sort_mode, $find, $tasks_use_dates, $pdate);
-if($maxRecords == 0) {
+$tasks = $tasklib->list_tasks($gBitUser->mUserId, $offset, $max_records, $sort_mode, $find, $tasks_use_dates, $pdate);
+if($max_records == 0) {
 	$cant_pages = 0;
 	$gBitSmarty->assign('actual_page', '1');
 } else {
-	$cant_pages = ceil($tasks["cant"] / $maxRecords);
-	$gBitSmarty->assign('actual_page', 1 + ($offset / $maxRecords));
+	$cant_pages = ceil($tasks["cant"] / $max_records);
+	$gBitSmarty->assign('actual_page', 1 + ($offset / $max_records));
 }
 $gBitSmarty->assign_by_ref('cant_pages', $cant_pages);
-if ($tasks["cant"] > ($offset + $maxRecords)) {
-	$gBitSmarty->assign('next_offset', $offset + $maxRecords);
+if ($tasks["cant"] > ($offset + $max_records)) {
+	$gBitSmarty->assign('next_offset', $offset + $max_records);
 } else {
 	$gBitSmarty->assign('next_offset', -1);
 }
 // If offset is > 0 then prev_offset
 if ($offset > 0) {
-	$gBitSmarty->assign('prev_offset', $offset - $maxRecords);
+	$gBitSmarty->assign('prev_offset', $offset - $max_records);
 } else {
 	$gBitSmarty->assign('prev_offset', -1);
 }

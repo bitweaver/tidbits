@@ -3,7 +3,7 @@
  * Tagline Management Library
  *
  * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.1 2006/02/01 21:45:13 spiderr Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.2 2006/02/06 00:11:48 squareing Exp $
  * @author awcolley
  *
  * Copyright (c) 2004 bitweaver.org
@@ -36,12 +36,12 @@ class TagLineLib extends BitBase
     /**
     * Lists stored taglines.
     * @param offset the location to begin listing from
-    * @param maxRecords the maximum number of records returned
+    * @param max_records the maximum number of records returned
     * @param sort_mode the method of sorting used in the listing
     * @param find text used to filter listing
     * @return array of taglines
     */
-    function list_cookies($offset, $maxRecords, $sort_mode, $find)
+    function list_cookies($offset, $max_records, $sort_mode, $find)
     {
         if ($find)
         {
@@ -55,7 +55,7 @@ class TagLineLib extends BitBase
         }
         $query = "select * from `".BIT_DB_PREFIX."tidbits_fortune_cookies` $mid order by ".$this->mDb->convert_sortmode($sort_mode);
         $query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_fortune_cookies` $mid";
-        $result = $this->mDb->query($query,$bindvars,$maxRecords,$offset);
+        $result = $this->mDb->query($query,$bindvars,$max_records,$offset);
         $cant = $this->mDb->getOne($query_cant,$bindvars);
         $ret = array();
         while ($res = $result->fetchRow())

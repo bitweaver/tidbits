@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.5 2006/02/04 23:32:52 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.6 2006/02/06 00:11:48 squareing Exp $
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,7 +12,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmark_lib.php,v 1.5 2006/02/04 23:32:52 squareing Exp $
+ * $Id: bookmark_lib.php,v 1.6 2006/02/06 00:11:48 squareing Exp $
  * @package users
  */
 
@@ -119,7 +119,7 @@ class BookmarkLib extends BitBase {
 		$result = $this->mDb->query($query,array((int) $now,BitDb::db_byte_encode( $data ),$url_id));
 		return true;
 	}
-	function list_folder($folder_id, $offset, $maxRecords, $sort_mode = 'name_asc', $find, $user_id) {
+	function list_folder($folder_id, $offset, $max_records, $sort_mode = 'name_asc', $find, $user_id) {
 		if ($find) {
 			$findesc = '%' . strtoupper( $find ) . '%';
 			$mid = " and UPPER(`name`) like ? or UPPER(`url`) like ?";
@@ -130,7 +130,7 @@ class BookmarkLib extends BitBase {
 		}
 		$query = "select * from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `folder_id`=? and `user_id`=? $mid order by ".$this->mDb->convert_sortmode($sort_mode);
 		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `folder_id`=? and `user_id`=? $mid";
-		$result = $this->mDb->query($query,$bindvars,$maxRecords,$offset);
+		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$ret = array();
 		while ($res = $result->fetchRow()) {

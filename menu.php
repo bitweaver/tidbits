@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/menu.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/menu.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: menu.php,v 1.2 2006/02/01 13:48:50 hash9 Exp $
+ * $Id: menu.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
  * @package users
  * @subpackage functions
  */
@@ -72,7 +72,7 @@ if (!isset($_REQUEST["offset"])) {
 }
 if (isset($_REQUEST['page'])) {
 	$page = &$_REQUEST['page'];
-	$offset = ($page - 1) * $maxRecords;
+	$offset = ($page - 1) * $max_records;
 }
 $gBitSmarty->assign_by_ref('offset', $offset);
 if (isset($_REQUEST["find"])) {
@@ -87,18 +87,18 @@ if (isset($_SESSION['thedate'])) {
 } else {
 	$pdate = $gBitSystem->getUTCTime();
 }
-$channels = $usermenulib->list_usermenus($gBitUser->mUserId, $offset, $maxRecords, $sort_mode, $find);
-$cant_pages = ceil($channels["cant"] / $maxRecords);
+$channels = $usermenulib->list_usermenus($gBitUser->mUserId, $offset, $max_records, $sort_mode, $find);
+$cant_pages = ceil($channels["cant"] / $max_records);
 $gBitSmarty->assign_by_ref('cant_pages', $cant_pages);
-$gBitSmarty->assign('actual_page', 1 + ($offset / $maxRecords));
-if ($channels["cant"] > ($offset + $maxRecords)) {
-	$gBitSmarty->assign('next_offset', $offset + $maxRecords);
+$gBitSmarty->assign('actual_page', 1 + ($offset / $max_records));
+if ($channels["cant"] > ($offset + $max_records)) {
+	$gBitSmarty->assign('next_offset', $offset + $max_records);
 } else {
 	$gBitSmarty->assign('next_offset', -1);
 }
 // If offset is > 0 then prev_offset
 if ($offset > 0) {
-	$gBitSmarty->assign('prev_offset', $offset - $maxRecords);
+	$gBitSmarty->assign('prev_offset', $offset - $max_records);
 } else {
 	$gBitSmarty->assign('prev_offset', -1);
 }

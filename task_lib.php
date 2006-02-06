@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/task_lib.php,v 1.3 2006/02/04 23:32:52 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/task_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: task_lib.php,v 1.3 2006/02/04 23:32:52 squareing Exp $
+ * $Id: task_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
  * @package users
  */
 
@@ -67,7 +67,7 @@ class TaskLib extends BitBase {
 		$this->mDb->query($query,array( $pUserId, (int)$task_id));
 	}
 
-	function list_tasks( $pUserId,  $offset, $maxRecords, $sort_mode, $find, $use_date, $pdate) {
+	function list_tasks( $pUserId,  $offset, $max_records, $sort_mode, $find, $use_date, $pdate) {
 		global $gBitSystem;
 		$now = $gBitSystem->getUTCTime();
 		$bindvars=array($pUserId);
@@ -94,7 +94,7 @@ class TaskLib extends BitBase {
 
 		$query = "select * from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? $mid order by ".$this->mDb->convert_sortmode($sort_mode).",`task_id` desc";
 		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? $mid";
-		$result = $this->mDb->query($query,$bindvars,$maxRecords,$offset);
+		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$ret = array();
 

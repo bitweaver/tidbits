@@ -3,7 +3,7 @@
  * User access Banning Library
  *
  * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.2 2006/02/04 23:32:52 squareing Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
  */
 
 /**
@@ -42,7 +42,7 @@ class BanLib extends BitBase {
 		$this->mDb->query($query,array($ban_id));
 	}
 
-	function list_rules($offset, $maxRecords, $sort_mode, $find, $where = '') {
+	function list_rules($offset, $max_records, $sort_mode, $find, $where = '') {
 		global $gBitSystem;
 		if ($find) {
 			$findesc = '%' . strtoupper( $find ) . '%';
@@ -64,7 +64,7 @@ class BanLib extends BitBase {
 
 		$query = "select * from `".BIT_DB_PREFIX."tidbits_banning` $mid order by ".$this->mDb->convert_sortmode($sort_mode);
 		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_banning` $mid";
-		$result = $this->mDb->query($query,$bindvars,$maxRecords,$offset);
+		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$ret = array();
 
