@@ -78,7 +78,7 @@ foreach( array_keys( $tables ) AS $tableName ) {
 }
 
 $gBitInstaller->registerPackageInfo( TIDBITS_PKG_NAME, array(
-	'description' => "This package gives you users options and possibilities to personalise your site to their tastes and demands.",
+	'description' => "This package gives your users options and possibilities to personalise your site to their tastes and demands.",
 	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
 	'version' => '0.1',
 	'state' => 'experimental',
