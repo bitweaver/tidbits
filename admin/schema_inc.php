@@ -18,7 +18,7 @@ $tables = array(
 	user_id I4 NOTNULL,
 	url C(250),
 	name C(40),
-	position I4,
+	menu_position I4,
 	mode C(1)
 	CONSTRAINT ', CONSTRAINT `user_menus_user_ref` FOREIGN KEY (`user_id`) REFERENCES `".BIT_DB_PREFIX."users_users` (`user_id`)'
 ",

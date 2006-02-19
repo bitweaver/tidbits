@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/user_menu_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/user_menu_lib.php,v 1.5 2006/02/19 08:46:05 lsces Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: user_menu_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
+ * $Id: user_menu_lib.php,v 1.5 2006/02/19 08:46:05 lsces Exp $
  * @package users
  */
 
@@ -73,17 +73,17 @@ class UserMenuLib extends BitBase {
 		return $res;
 	}
 	function get_max_position($user) {
-		return $this->mDb->getOne("select max(`position`) from `".BIT_DB_PREFIX."tidbits_menus` where `user_id`=?",array($user));
+		return $this->mDb->getOne("select max(`menu_position`) from `".BIT_DB_PREFIX."tidbits_menus` where `user_id`=?",array($user));
 	}
 	function replace_usermenu($user, $menu_id, $name, $url, $position, $mode) {
 		global $gBitSystem;
 		$now = $gBitSystem->getUTCTime();
 		if ($menu_id) {
-			$query = "update `".BIT_DB_PREFIX."tidbits_menus` set `name`=?, `position`=?, `url`=?, `mode`=? where `user_id`=? and `menu_id`=?";
+			$query = "update `".BIT_DB_PREFIX."tidbits_menus` set `name`=?, `menu_position`=?, `url`=?, `mode`=? where `user_id`=? and `menu_id`=?";
 			$this->mDb->query($query,array($name,$position,$url,$mode,$user,$menu_id));
 			return $menu_id;
 		} else {
-			$query = "insert into `".BIT_DB_PREFIX."tidbits_menus`(`user_id`,`name`,`url`,`position`,`mode`) values(?,?,?,?,?)";
+			$query = "insert into `".BIT_DB_PREFIX."tidbits_menus`(`user_id`,`name`,`url`,`menu_position`,`mode`) values(?,?,?,?,?)";
 			$this->mDb->query($query,array($user,$name,$url,$position,$mode));
 			$Id = $this->mDb->getOne("select max(`menu_id`) from `".BIT_DB_PREFIX."tidbits_menus` where `user_id`=? and `url`=? and `name`=?",array($user,$url,$name));
 			return $Id;

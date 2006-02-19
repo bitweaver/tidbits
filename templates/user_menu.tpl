@@ -4,7 +4,7 @@
 <div class="menu"><ul>
 {if $menu_info.type eq 'e' or $menu_info.type eq 'd'}
 	{foreach key=pos item=chdata from=$moptions}
-		{assign var=cname value='menu'|cat:$menu_info.menu_id|cat:'__'|cat:$chdata.position}
+		{assign var=cname value='menu'|cat:$menu_info.menu_id|cat:'__'|cat:$chdata.menu_position}
 		{if $chdata.type eq 's'}
 			{if $opensec eq 'y'}
 				</ul></div>

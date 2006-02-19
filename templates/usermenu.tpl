@@ -21,7 +21,7 @@
 <table class="panel">
 <tr>
 <td  class="heading"><input type="submit" name="delete" value="Delete" title="{tr}delete selected{/tr}" /></td>
-<td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'position_desc'}position_asc{else}position_desc{/if}">{tr}Pos{/tr}</a></td>
+<td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'menu_position_desc'}menu_position_asc{else}menu_position_desc{/if}">{tr}Pos{/tr}</a></td>
 <td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'name_desc'}name_asc{else}name_desc{/if}">{tr}Name{/tr}</a></td>
 <td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'url_desc'}url_asc{else}url_desc{/if}">{tr}URL{/tr}</a></td>
 <td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'mode_desc'}mode_asc{else}mode_desc{/if}">{tr}Mode{/tr}</a></td>
@@ -32,7 +32,7 @@
 <td style="text-align:center;" class="{cycle advance=false}">
 <input type="checkbox" name="menu[{$channels[user].menu_id}]" />
 </td>
-<td class="{cycle advance=false}">{$channels[user].position}</td>
+<td class="{cycle advance=false}">{$channels[user].menu_position}</td>
 <td class="{cycle advance=false}"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?menu_id={$channels[user].menu_id}&amp;offset={$offset}&amp;sort_mode={$sort_mode}&amp;find={$find}">{$channels[user].name}</a></td>
 <td class="{cycle advance=false}">{$channels[user].url|truncate:40:"...":true}</td>
 <td style="text-align:center;" class="{cycle advance=false}">{$channels[user].mode}</td>
@@ -69,7 +69,7 @@
   <tr><td>{tr}URL{/tr}</td>
       <td><input type="text" name="url" value="{$info.url|escape}" /></td>  </tr>
   <tr><td>{tr}Position{/tr}</td>
-      <td><input type="text" name="position" value="{$info.position|escape}" /></td>
+      <td><input type="text" name="menu_position" value="{$info.menu_position|escape}" /></td>
   </tr>
   <tr><td>{tr}Mode{/tr}</td>
       <td>

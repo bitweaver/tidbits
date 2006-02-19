@@ -64,9 +64,9 @@
 				</div>
 
 				<div class="row">
-					{formlabel label="Position" for="position"}
+					{formlabel label="Position" for="menu_position"}
 					{forminput}
-						<input type="text" name="position" id="position" value="{$position|escape}" size="5" />
+						<input type="text" name="menu_position" id="menu_position" value="{$position|escape}" size="5" />
 						{formhelp note=""}
 					{/forminput}
 				</div>
@@ -90,7 +90,7 @@
 	<caption>{tr}Menu Options{/tr}</caption>
 	<tr>
 		<th><a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;menu_id={$menu_id}&amp;offset={$offset}&amp;sort_mode={if $sort_mode eq 'option_id_desc'}option_id_asc{else}option_id_desc{/if}">{tr}ID{/tr}</a></th>
-		<th><a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;menu_id={$menu_id}&amp;offset={$offset}&amp;sort_mode={if $sort_mode eq 'position_desc'}position_asc{else}position_desc{/if}">{tr}Position{/tr}</a></th>
+		<th><a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;menu_id={$menu_id}&amp;offset={$offset}&amp;sort_mode={if $sort_mode eq 'menu_position_desc'}menu_position_asc{else}menu_position_desc{/if}">{tr}Position{/tr}</a></th>
 		<th><a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;menu_id={$menu_id}&amp;offset={$offset}&amp;sort_mode={if $sort_mode eq 'name_desc'}name_asc{else}name_desc{/if}">{tr}Name{/tr}</a></th>
 		<th><a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;menu_id={$menu_id}&amp;offset={$offset}&amp;sort_mode={if $sort_mode eq 'url_desc'}url_asc{else}url_desc{/if}">{tr}URL{/tr}</a></th>
 		<th><a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;menu_id={$menu_id}&amp;offset={$offset}&amp;sort_mode={if $sort_mode eq 'type_desc'}type_asc{else}type_desc{/if}">{tr}Type{/tr}</a></th>
@@ -103,7 +103,7 @@
 	{section name=user loop=$admmoptions}
 		<tr class="{cycle}">
 			<td>{$admmoptions[user].menu_id}</td>
-			<td>{$admmoptions[user].position}</td>
+			<td>{$admmoptions[user].menu_position}</td>
 			<td>{$admmoptions[user].name}</td>
 			<td>{$admmoptions[user].url}</td>
 			<td>{$admmoptions[user].type}</td>
