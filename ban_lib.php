@@ -3,7 +3,7 @@
  * User access Banning Library
  *
  * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.4 2006/02/19 09:30:40 lsces Exp $
  */
 
 /**
@@ -46,7 +46,7 @@ class BanLib extends BitBase {
 		global $gBitSystem;
 		if ($find) {
 			$findesc = '%' . strtoupper( $find ) . '%';
-			$mid = " where ((UPPER(`message`) like ?) or (UPPER(`title`) like ?))";
+			$mid = " WHERE ((UPPER(`ban_message`) LIKE ?) OR (UPPER(`title`) LIKE ?))";
 			$bindvars=array($findesc,$findesc);
 		} else {
 			$mid = "";
@@ -86,7 +86,7 @@ class BanLib extends BitBase {
 		$retval["data"] = $ret;
 		$retval["cant"] = $cant;
 		$now = $gBitSystem->getUTCTime();
-		$query = "select `ban_id` from `".BIT_DB_PREFIX."tidbits_banning` where `use_dates`=? and `date_to` < ?";
+		$query = "SELECT `ban_id` FROM `".BIT_DB_PREFIX."tidbits_banning` WHERE `use_dates`=? AND `date_to` < ?";
 		$result = $this->mDb->query($query,array('y',$now));
 
 		while ($res = $result->fetchRow()) {
@@ -108,25 +108,25 @@ class BanLib extends BitBase {
 	  date_from timestamp,
 	  date_to timestamp,
 	  use_dates char(1),
-	  message text,
+	  ban_message text,
 	  primary key(ban_id)
 	  */
 	function replace_rule($ban_id, $mode, $title, $ip1, $ip2, $ip3, $ip4, $user, $date_from, $date_to, $use_dates, $message,
 		$packages) {
 
 		if ($ban_id) {
-			$query = " update `".BIT_DB_PREFIX."tidbits_banning` set
+			$query = " UPDATE `".BIT_DB_PREFIX."tidbits_banning` SET
   			`title`=?,
   			`ip1`=?,
   			`ip2`=?,
   			`ip3`=?,
   			`ip4`=?,
-  			`user`=?,
+  			`ban_user`=?,
   			`date_from` = ?,
   			`date_to` = ?,
   			`use_dates` = ?,
-  			`message` = ?
-  			where `ban_id`=?
+  			`ban_message` = ?
+  			WHERE `ban_id`=?
   		";
 
 			$this->mDb->query($query,array($title,$ip1,$ip2,$ip3,$ip4,$user,$date_from,$date_to,$use_dates,$message,$ban_id));
@@ -134,17 +134,17 @@ class BanLib extends BitBase {
 			global $gBitSystem;
 			$now = $gBitSystem->getUTCTime();
 
-			$query = "insert into `".BIT_DB_PREFIX."tidbits_banning`(`mode`,`title`,`ip1`,`ip2`,`ip3`,`ip4`,`user`,`date_from`,`date_to`,`use_dates`,`message`,`created`)
+			$query = "INSERT INTO `".BIT_DB_PREFIX."tidbits_banning`(`mode`,`title`,`ip1`,`ip2`,`ip3`,`ip4`,`ban_user`,`date_from`,`date_to`,`use_dates`,`ban_message`,`created`)
 		values(?,?,?,?,?,?,?,?,?,?,?,?)";
 			$this->mDb->query($query,array($mode,$title,$ip1,$ip2,$ip3,$ip4,$user,$date_from,$date_to,$use_dates,$message,$now));
-			$ban_id = $this->mDb->getOne("select max(`ban_id`) from `".BIT_DB_PREFIX."tidbits_banning` where `created`=?",array($now));
+			$ban_id = $this->mDb->getOne("SELECT MAX(`ban_id`) FROM `".BIT_DB_PREFIX."tidbits_banning` WHERE `created`=?",array($now));
 		}
 
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_banning_packages` where `ban_id`=?";
+		$query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_banning_packages` WHERE `ban_id`=?";
 		$this->mDb->query($query,array($ban_id));
 
 		foreach ($packages as $package) {
-			$query = "insert into `".BIT_DB_PREFIX."tidbits_banning_packages`(`ban_id`,`package`) values(?,?)";
+			$query = "INSERT INTO `".BIT_DB_PREFIX."tidbits_banning_packages`(`ban_id`,`package`) VALUES(?,?)";
 
 			$this->mDb->query($query,array($ban_id,$package));
 		}

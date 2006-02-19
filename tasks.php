@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/tasks.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/tasks.php,v 1.4 2006/02/19 09:30:40 lsces Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: tasks.php,v 1.3 2006/02/06 00:11:48 squareing Exp $
+ * $Id: tasks.php,v 1.4 2006/02/19 09:30:40 lsces Exp $
  * @package users
  * @subpackage functions
  */
@@ -73,7 +73,7 @@ if ($_REQUEST["task_id"]) {
 	$info['description'] = '';
 	$info['priority'] = 3;
 	$info['status'] = 'o';
-	$info['date'] = $gBitSystem->getUTCTime();
+	$info['task_date'] = $gBitSystem->getUTCTime();
 }
 if (isset($_REQUEST['save'])) {
 	$date = $gBitSystem->mServerTimestamp->getUTCFromDisplayDate(mktime(0, 0, 0, $_REQUEST["Date_Month"], $_REQUEST["Date_Day"], $_REQUEST["Date_Year"]));
@@ -96,14 +96,14 @@ if (isset($_REQUEST['save'])) {
 	$info['description'] = '';
 	$info['priority'] = 3;
 	$info['status'] = 'o';
-	$info['date'] = $gBitSystem->getUTCTime();
+	$info['task_date'] = $gBitSystem->getUTCTime();
 	$_REQUEST["task_id"] = 0;
 }
 $gBitSmarty->assign('task_id', $_REQUEST["task_id"]);
 $gBitSmarty->assign('info', $info);
-$gBitSmarty->assign('Date_Month', date("m", $info['date']));
-$gBitSmarty->assign('Date_Day', date("d", $info['date']));
-$gBitSmarty->assign('Date_Year', date("Y", $info['date']));
+$gBitSmarty->assign('Date_Month', date("m", $info['task_date']));
+$gBitSmarty->assign('Date_Day', date("d", $info['task_date']));
+$gBitSmarty->assign('Date_Year', date("Y", $info['task_date']));
 if ( empty( $_REQUEST["sort_mode"] ) ) {
 	$sort_mode = 'priority_desc';
 } else {

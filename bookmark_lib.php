@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.6 2006/02/06 00:11:48 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.7 2006/02/19 09:30:40 lsces Exp $
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,7 +12,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmark_lib.php,v 1.6 2006/02/06 00:11:48 squareing Exp $
+ * $Id: bookmark_lib.php,v 1.7 2006/02/19 09:30:40 lsces Exp $
  * @package users
  */
 
@@ -36,7 +36,7 @@ class BookmarkLib extends BitBase {
 		return $path;
 	}
 	function get_folder($folder_id, $user_id) {
-		$query = "select * from `".BIT_DB_PREFIX."tidbits_bookmarks_folders` where `folder_id`=? and `user_id`=?";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_bookmarks_folders` WHERE `folder_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($folder_id,$user_id));
 		if (!$result->numRows())
 			return false;
@@ -44,7 +44,7 @@ class BookmarkLib extends BitBase {
 		return $res;
 	}
 	function get_url($url_id) {
-		$query = "select * from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `url_id`=?";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `url_id`=?";
 		$result = $this->mDb->query($query,array($url_id));
 		if (!$result->numRows())
 			return false;
@@ -52,19 +52,19 @@ class BookmarkLib extends BitBase {
 		return $res;
 	}
 	function remove_url($url_id, $user_id) {
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `url_id`=? and `user_id`=?";
+		$query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `url_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($url_id,$user_id));
 		return true;
 	}
 	function remove_folder($folder_id, $user_id) {
 		// Delete the category
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_bookmarks_folders` where `folder_id`=? and `user_id`=?";
+		$query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_bookmarks_folders` WHERE `folder_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($folder_id,$user_id));
 		// Remove objects for this category
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `folder_id`=? and `user_id`=?";
+		$query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($folder_id,$user_id));
 		// SUbfolders
-		$query = "select `folder_id` from `".BIT_DB_PREFIX."tidbits_bookmarks_folders` where `parent_id`=? and `user_id`=?";
+		$query = "SELECT `folder_id` FROM `".BIT_DB_PREFIX."tidbits_bookmarks_folders` WHERE `parent_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($folder_id,$user_id));
 		while ($res = $result->fetchRow()) {
 			// Recursively remove the subcategory
@@ -73,14 +73,14 @@ class BookmarkLib extends BitBase {
 		return true;
 	}
 	function update_folder($folder_id, $name, $user_id) {
-		$query = "update `".BIT_DB_PREFIX."tidbits_bookmarks_folders` set `name`=? where `folder_id`=? and `user_id`=?";
+		$query = "UPDATE `".BIT_DB_PREFIX."tidbits_bookmarks_folders` SET `name`=? WHERE `folder_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($name,$folder_id,$user_id));
 	}
 	function add_folder($parent_id, $name, $user_id) {
 		// Don't allow empty/blank folder names.
 		if (empty($name))
 			return false;
-		$query = "insert into `".BIT_DB_PREFIX."tidbits_bookmarks_folders`(`name`,`parent_id`,`user_id`) values(?,?,?)";
+		$query = "INSERT INTO `".BIT_DB_PREFIX."tidbits_bookmarks_folders`(`name`,`parent_id`,`user_id`) VALUES(?,?,?)";
 		$result = $this->mDb->query($query,array($name,$parent_id,$user_id));
 	}
 	function replace_url($url_id, $folder_id, $name, $url, $user_id) {
@@ -89,7 +89,7 @@ class BookmarkLib extends BitBase {
 			global $gBitSystem;
 			$now = $gBitSystem->getUTCTime();
 			if ($url_id) {
-				$query = "update `".BIT_DB_PREFIX."tidbits_bookmarks_urls` set `user_id`=?,`last_updated`=?,`folder_id`=?,`name`=?,`url`=? where `url_id`=?";
+				$query = "UPDATE `".BIT_DB_PREFIX."tidbits_bookmarks_urls` SET `user_id`=?,`last_updated`=?,`folder_id`=?,`name`=?,`url`=? WHERE `url_id`=?";
 				$bindvars=array($user_id,(int) $now,$folder_id,$name,$url,$url_id);
 			} else {
 				$query = " insert into `".BIT_DB_PREFIX."tidbits_bookmarks_urls`(`name`,`url`,`data`,`last_updated`,`folder_id`,`user_id`)
@@ -97,7 +97,7 @@ class BookmarkLib extends BitBase {
 					$bindvars=array($name,$url,'',(int) $now,$folder_id,$user_id);
 			}
 			$result = $this->mDb->query($query,$bindvars);
-			$id = $this->mDb->getOne("select max(`url_id`) from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `url`=? and `last_updated`=?",array($url,(int) $now));
+			$id = $this->mDb->getOne("select max(`url_id`) from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `url`=? AND `last_updated`=?",array($url,(int) $now));
 		}
 		return $id;
 	}
@@ -115,21 +115,21 @@ class BookmarkLib extends BitBase {
 		fclose ($fp);
 		global $gBitSystem;
 		$now = $gBitSystem->getUTCTime();
-		$query = "update `".BIT_DB_PREFIX."tidbits_bookmarks_urls` set `last_updated`=?, `data`=? where `url_id`=?";
+		$query = "UPDATE `".BIT_DB_PREFIX."tidbits_bookmarks_urls` SET `last_updated`=?, `data`=? WHERE `url_id`=?";
 		$result = $this->mDb->query($query,array((int) $now,BitDb::db_byte_encode( $data ),$url_id));
 		return true;
 	}
 	function list_folder($folder_id, $offset, $max_records, $sort_mode = 'name_asc', $find, $user_id) {
 		if ($find) {
 			$findesc = '%' . strtoupper( $find ) . '%';
-			$mid = " and UPPER(`name`) like ? or UPPER(`url`) like ?";
+			$mid = " AND UPPER(`name`) LIKE ? OR UPPER(`url`) LIKE ?";
 			$bindvars=array($folder_id,$user_id,$findesc,$findesc);
 		} else {
 			$mid = "";
 			$bindvars=array($folder_id,$user_id);
 		}
-		$query = "select * from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `folder_id`=? and `user_id`=? $mid order by ".$this->mDb->convert_sortmode($sort_mode);
-		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `folder_id`=? and `user_id`=? $mid";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=? AND `user_id`=? $mid ORDER BY ".$this->mDb->convert_sortmode($sort_mode);
+		$query_cant = "SELECT COUNT(*) FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=? AND `user_id`=? $mid";
 		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$ret = array();
@@ -144,10 +144,10 @@ class BookmarkLib extends BitBase {
 	}
 	function get_child_folders($folder_id, $user_id) {
 		$ret = array();
-		$query = "select * from `".BIT_DB_PREFIX."tidbits_bookmarks_folders` where `parent_id`=? and `user_id`=?";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_bookmarks_folders` WHERE `parent_id`=? AND `user_id`=?";
 		$result = $this->mDb->query($query,array($folder_id,$user_id));
 		while ($res = $result->fetchRow()) {
-			$cant = $this->mDb->getOne("select count(*) from `".BIT_DB_PREFIX."tidbits_bookmarks_urls` where `folder_id`=?",array($res["folder_id"]));
+			$cant = $this->mDb->getOne("SELECT COUNT(*) FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=?",array($res["folder_id"]));
 			$res["urls"] = $cant;
 			$ret[] = $res;
 		}

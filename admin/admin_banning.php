@@ -1,6 +1,6 @@
 <?php
 
-// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.4 2006/02/06 22:56:51 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.5 2006/02/19 09:30:41 lsces Exp $
 
 // Copyright (c) 2002-2003, Luis Argerich, Garland Foster, Eduardo Polidor, et. al.
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
@@ -28,7 +28,7 @@ if (isset($_REQUEST['ban_id'])) {
 	$info['use_dates'] = 'n';
 	$info['date_from'] = $gBitSystem->getUTCTime();
 	$info['date_to'] = $info['date_from'] + 7 * 24 * 3600;
-	$info['message'] = '';
+	$info['ban_message'] = '';
 }
 
 $gBitSmarty->assign('ban_id', $_REQUEST['ban_id']);
@@ -55,7 +55,7 @@ if (isset($_REQUEST['save'])) {
 	$packages = array_keys($_REQUEST['package']);
 	$banlib->replace_rule($_REQUEST['ban_id'], $_REQUEST['mode'], $_REQUEST['title'], $_REQUEST['ip1'], $_REQUEST['ip2'],
 		$_REQUEST['ip3'], $_REQUEST['ip4'], $_REQUEST['user'], $_REQUEST['date_from'], $_REQUEST['date_to'], $_REQUEST['use_dates'],
-		$_REQUEST['message'], $packages);
+		$_REQUEST['ban_message'], $packages);
 
 	$info['packages'] = array();
 	$info['title'] = '';
@@ -67,7 +67,7 @@ if (isset($_REQUEST['save'])) {
 	$info['use_dates'] = 'n';
 	$info['date_from'] = $gBitSystem->getUTCTime();
 	$info['date_to'] = $info['date_from'] + 7 * 24 * 3600;
-	$info['message'] = '';
+	$info['ban_message'] = '';
 	$gBitSmarty->assign_by_ref('info', $info);
 }
 

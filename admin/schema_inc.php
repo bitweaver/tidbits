@@ -28,7 +28,7 @@ $tables = array(
 	user_id I4 NOTNULL,
 	title C(250),
 	description X,
-	date I8,
+	task_date I8,
 	status C(1),
 	priority I4,
 	completed I8,
@@ -56,12 +56,12 @@ $tables = array(
 	ip2 C(3),
 	ip3 C(3),
 	ip4 C(3),
-	`user` C(40),
+	ban_user C(40),
 	date_from T NOTNULL,
 	date_to T NOTNULL,
 	use_dates C(1),
 	created I8,
-	message X
+	ban_message X
 ",
 
 'tidbits_banning_packages' => "

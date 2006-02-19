@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/task_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/task_lib.php,v 1.5 2006/02/19 09:30:40 lsces Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,13 +8,13 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: task_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
+ * $Id: task_lib.php,v 1.5 2006/02/19 09:30:40 lsces Exp $
  * @package users
  */
 
 /**
  * Task properties:
- *  user, task_id, title, description, date, status, priority, completed, percentage
+ *  user, task_id, title, description, taks_date, status, priority, completed, percentage
  * @package users
  * @subpackage TaskLib
  */
@@ -24,33 +24,33 @@ class TaskLib extends BitBase {
 		BitBase::BitBase();
 	}
 	function get_task( $pUserId,  $task_id) {
-		$query = "select * from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? and `task_id`=?";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_tasks` WHERE `user_id`=? AND `task_id`=?";
 		$result = $this->mDb->query($query,array( $pUserId, (int)$task_id));
 		$res = $result->fetchRow();
 		return $res;
 	}
 
 	function update_task_percentage( $pUserId,  $task_id, $perc) {
-		$query = "update `".BIT_DB_PREFIX."tidbits_tasks` set `percentage`=? where `user_id`=? and `task_id`=?";
+		$query = "UPDATE `".BIT_DB_PREFIX."tidbits_tasks` SET `percentage`=? WHERE `user_ AND `task_id`=?";
 		$this->mDb->query($query,array((int)$perc, $pUserId, (int)$task_id));
 	}
 
 	function open_task( $pUserId,  $task_id) {
-		$query = "update `".BIT_DB_PREFIX."tidbits_tasks` set `completed`=?, `status`=?, `percentage`=? where `user_id`=? and `task_id`=?";
+		$query = "UPDATE `".BIT_DB_PREFIX."tidbits_tasks` SET `completed`=?, `status`=?, `percentage`=? WHERE `user_id`=? AND `task_id`=?";
 		$this->mDb->query($query, array(0,'o',0, $pUserId, (int)$task_id));
 	}
 
 	function replace_task( $pUserId,  $task_id, $title, $description, $date, $status, $priority, $completed, $percentage) {
 		if ($task_id != 0) {
-			$query = "update `".BIT_DB_PREFIX."tidbits_tasks` set `title` = ?, `description` = ?, `date` = ?, `status` = ?, `priority` = ?, ";
-			$query.= "`percentage` = ?, `completed` = ?  where `user_id`=? and `task_id`=?";
+			$query = "UPDATE `".BIT_DB_PREFIX."tidbits_tasks` SET `title` = ?, `description` = ?, `task_date` = ?, `status` = ?, `priority` = ?, ";
+			$query.= "`percentage` = ?, `completed` = ?  WHERE `user_id`=? AND `task_id`=?";
 			$this->mDb->query($query,array($title,$description,$date,$status,$priority,$percentage,$completed, $pUserId, $task_id));
 			return $task_id;
 		} else {
-			$query = "insert into `".BIT_DB_PREFIX."tidbits_tasks`(`user_id`,`title`,`description`,`date`,`status`,`priority`,`completed`,`percentage`) ";
-			$query.= " values(?,?,?,?,?,?,?,?)";
+			$query = "INSERT INTO `".BIT_DB_PREFIX."tidbits_tasks`(`user_id`,`title`,`description`,`task_date`,`status`,`priority`,`completed`,`percentage`) ";
+			$query.= " VALUES(?,?,?,?,?,?,?,?)";
 			$this->mDb->query($query,array($pUserId,$title,$description,$date,$status,$priority,$completed,$percentage));
-			$task_id = $this->mDb->getOne( "select  max(`task_id`) from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? and `title`=? and `date`=?",array( $pUserId, $title,$date));
+			$task_id = $this->mDb->getOne( "SELECT  MAX(`task_id`) FROM `".BIT_DB_PREFIX."tidbits_tasks` WHERE `user_id`=? AND `title`=? AND `task_date`=?",array( $pUserId, $title,$date));
 			return $task_id;
 		}
 	}
@@ -58,12 +58,12 @@ class TaskLib extends BitBase {
 	function complete_task( $pUserId,  $task_id) {
 		global $gBitSystem;
 		$now = $gBitSystem->getUTCTime();
-		$query = "update `".BIT_DB_PREFIX."tidbits_tasks` set `completed`=?, `status`='c', `percentage`=100 where `user_id`=? and `task_id`=?";
+		$query = "UPDATE `".BIT_DB_PREFIX."tidbits_tasks` set `completed`=?, `status`='c', `percentage`=100 WHERE `user_id`=? AND `task_id`=?";
 		$this->mDb->query($query,array((int)$now, $pUserId, (int)$task_id));
 	}
 
 	function remove_task( $pUserId,  $task_id) {
-		$query = "delete from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? and `task_id`=?";
+		$query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_tasks` WHERE `user_id`=? AND `task_id`=?";
 		$this->mDb->query($query,array( $pUserId, (int)$task_id));
 	}
 
@@ -72,7 +72,7 @@ class TaskLib extends BitBase {
 		$now = $gBitSystem->getUTCTime();
 		$bindvars=array($pUserId);
 		if ($use_date == 'y') {
-			$prio = " and `date`<=? ";
+			$prio = " AND `task_date`<=? ";
 			$bindvars2=$pdate;
 		} 
 		else {
@@ -81,7 +81,7 @@ class TaskLib extends BitBase {
 
 		if ($find) {
 			$findesc = '%' . strtoupper( $find ). '%';
-			$mid = " and (UPPER(`title`) like ? or UPPER(`description`) like ?)";
+			$mid = " AND (UPPER(`title`) like ? or UPPER(`description`) like ?)";
 			$bindvars[]=$findesc;
 			$bindvars[]=$findesc;
 		} else {
@@ -92,8 +92,8 @@ class TaskLib extends BitBase {
 		if (isset($bindvars2)) 
 			$bindvars[]=$bindvars2;
 
-		$query = "select * from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? $mid order by ".$this->mDb->convert_sortmode($sort_mode).",`task_id` desc";
-		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_tasks` where `user_id`=? $mid";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_tasks` WHERE `user_id`=? $mid order by ".$this->mDb->convert_sortmode($sort_mode).",`task_id` desc";
+		$query_cant = "SELECT COUNT(*) FROM `".BIT_DB_PREFIX."tidbits_tasks` WHERE `user_id`=? $mid";
 		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$ret = array();
