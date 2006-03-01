@@ -6,7 +6,7 @@ $registerHash = array(
 );
 $gBitSystem->registerPackage( $registerHash );
 
-if( $gBitUser->isRegistered() && $gBitSystem->getPreference('usermenu') == 'y' ) {
+if( $gBitUser->isRegistered() && $gBitSystem->getConfig('usermenu') == 'y' ) {
 
 	if (!isset($_SESSION['usermenu'])) {
 		include_once(TIDBITS_PKG_PATH . 'user_menu_lib.php');

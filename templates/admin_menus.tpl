@@ -89,7 +89,7 @@
 				<div class="row">
 					{formlabel label=`$output.label` for=$feature}
 					{forminput}
-						{html_checkboxes name="$feature" values="y" checked=`$gBitSystemPrefs.$feature` labels=false id=$feature}
+						{html_checkboxes name="$feature" values="y" checked=`$gBitSystem->getConfig('')$feature` labels=false id=$feature}
 						{formhelp note=`$output.note` page=`$output.page`}
 					{/forminput}
 				</div>

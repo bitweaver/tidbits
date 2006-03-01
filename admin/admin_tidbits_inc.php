@@ -36,7 +36,7 @@ if ( $gBitSystem->isPackageActive('tidbits')) {
 
 	if( isset( $_REQUEST['settings'] ) ) {
 		foreach ( array_keys( $formFeaturesTidbits ) as $feature) {
-			$gBitSystem->storePreference( $feature, (isset( $_REQUEST['settings'][$feature][0] ) ? $_REQUEST['settings'][$feature][0] : 'n'), TIDBITS_PKG_NAME );
+			$gBitSystem->storeConfig( $feature, (isset( $_REQUEST['settings'][$feature][0] ) ? $_REQUEST['settings'][$feature][0] : 'n'), TIDBITS_PKG_NAME );
 		}
 	}
 }
