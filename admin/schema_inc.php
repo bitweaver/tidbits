@@ -48,6 +48,7 @@ $tables = array(
 	fortune C(255)
 ",
 
+// we need to convert the date stamps to integer columns
 'tidbits_banning' => "
 	ban_id I4 AUTO PRIMARY,
 	mode C(4),

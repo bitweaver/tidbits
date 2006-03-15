@@ -1,6 +1,6 @@
 <?php
 
-// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.5 2006/02/19 09:30:41 lsces Exp $
+// $Header: /cvsroot/bitweaver/_bit_tidbits/admin/admin_banning.php,v 1.6 2006/03/15 11:15:32 squareing Exp $
 
 // Copyright (c) 2002-2003, Luis Argerich, Garland Foster, Eduardo Polidor, et. al.
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
@@ -160,6 +160,6 @@ $packages = array(
 $gBitSmarty->assign('packages', $packages);
 
 
-$gBitSystem->display( 'bitpackage:kernel/admin_banning.tpl');
+$gBitSystem->display( 'bitpackage:tidbits/admin_banning.tpl');
 
 ?>
