@@ -111,7 +111,7 @@
 		{section name=user loop=$items}
 			<tr class="{cycle values="even,odd" print=false}">
 				<td><input type="checkbox" name="delsec[{$items[user].ban_id}]" /></td>
-				<td><a href="{$smarty.const.KERNEL_PKG_URL}admin/admin_banning.php?ban_id={$items[user].ban_id}">{$items[user].title}</a></td>
+				<td><a href="{$smarty.const.KERNEL_PKG_URL}admin/admin_banning.php?ban_id={$items[user].ban_id}">{$items[user].title|escape}</a></td>
 				<td>
 					{if $items[user].mode eq 'user'}
 						{$items[user].user}
