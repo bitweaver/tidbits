@@ -8,14 +8,14 @@ $upgrades = array(
 array( 'DATADICT' => array(
 	array( 'RENAMECOLUMN' => array(
 		'tidbits_menus' => array(
-			'`position`' => 'menu_position'
+			'`position`' => 'menu_position',
 		),
 		'tidbits_tasks' => array(
-			'`date`' => 'task_date'
+			'`date`' => 'task_date',
 		),
 		'tidbits_banning' => array(
-			'`user`' => 'ban_user'
-			'`message`' => 'ban_message'
+			'`user`' => 'ban_user',
+			'`message`' => 'ban_message',
 		),
 	)),
 )),
