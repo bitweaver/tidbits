@@ -98,7 +98,7 @@ $gBitInstaller->registerUserPermissions( TIDBITS_PKG_NAME, array(
 	array('bit_p_usermenu', 'Can create items in personal menu', 'registered', TIDBITS_PKG_NAME),
 	array('bit_p_tasks', 'Can use tasks', 'registered', TIDBITS_PKG_NAME),
 	//array('bit_p_admin_users', 'Can edit the information for other users', 'admin', TIDBITS_PKG_NAME),
-	array('bit_p_view_tabs_and_tools', 'Can view tab and tool links', 'basic', TIDBITS_PKG_NAME),
+	//array('bit_p_view_tabs_and_tools', 'Can view tab and tool links', 'basic', TIDBITS_PKG_NAME),
 	array('bit_p_custom_home_theme', 'Can modify user homepage theme', 'editors', TIDBITS_PKG_NAME),
 	array('bit_p_custom_home_layout', 'Can modify user homepage layout', 'editors', TIDBITS_PKG_NAME),
 	array('bit_p_custom_css', 'Can create custom style sheets', 'editors', TIDBITS_PKG_NAME),
