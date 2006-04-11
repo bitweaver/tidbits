@@ -104,5 +104,6 @@ $gBitInstaller->registerUserPermissions( TIDBITS_PKG_NAME, array(
 	array('bit_p_custom_css', 'Can create custom style sheets', 'editors', TIDBITS_PKG_NAME),
 	//array('bit_p_create_personal_groups', 'Can create personal user groups', 'editors', TIDBITS_PKG_NAME),
 	array('bit_p_edit_cookies', 'Can admin cookies', 'editors', TIDBITS_PKG_NAME),
+	array('bit_p_admin_banning', 'Can ban users or IPs', 'admin', TIDBITS_PKG_NAME),
 ) );
 ?>
