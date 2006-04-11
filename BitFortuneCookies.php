@@ -3,7 +3,7 @@
  * Tagline Management Library
  *
  * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.3 2006/02/19 09:30:40 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.4 2006/04/11 12:04:35 squareing Exp $
  * @author awcolley
  *
  * Copyright (c) 2004 bitweaver.org
@@ -45,7 +45,7 @@ class TagLineLib extends BitBase
     {
         if ($find)
         {
-            $mid = " where (UPPER(`cookie`) like ?)";
+            $mid = " where (UPPER(`fortune`) like ?)";
             $bindvars = array('%' . strtoupper( $find ) . '%');
         }
         else
@@ -72,22 +72,22 @@ class TagLineLib extends BitBase
     * @todo This doesn't look like it works correctly - wolff_borg
     *
     * @param cookieId tagline unqiue identifier
-    * @param cookie text of tagline
+    * @param fortune text of tagline
     */
     function replace_cookie($cookieId, $cookie)
     {
         // $cookie = addslashes($cookie);
         // Check the name if ($cookieId)
         if($cookieId) {
-            $query = "UPDATE `".BIT_DB_PREFIX."tidbits_fortune_cookies` SET `cookie`=? WHERE `cookieId`=?";
+            $query = "UPDATE `".BIT_DB_PREFIX."tidbits_fortune_cookies` SET `fortune`=? WHERE `cookieId`=?";
             $bindvars = array($cookie,(int)$cookieId);
         }
         else
         {
             $bindvars = array($cookie);
-            $query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_fortune_cookies` WHERE `cookie`=?";
+            $query = "DELETE FROM `".BIT_DB_PREFIX."tidbits_fortune_cookies` WHERE `fortune`=?";
             $result = $this->mDb->query($query,$bindvars);
-            $query = "INSERT INTO `".BIT_DB_PREFIX."tidbits_fortune_cookies`(`cookie`) VALUES(?)";
+            $query = "INSERT INTO `".BIT_DB_PREFIX."tidbits_fortune_cookies`(`fortune`) VALUES(?)";
         }
         $result = $this->mDb->query($query,$bindvars);
         return true;
@@ -129,20 +129,20 @@ class TagLineLib extends BitBase
 		if (!$cant) return '';
 
 		$bid = rand(0, $cant - 1);
-		//$cookie = $this->mDb->getOne("SELECT `cookie` FROM `".BIT_DB_PREFIX."tidbits_fortune_cookies` limit $bid,1"); getOne seems not to work with limit
-		$result = $this->mDb->query("SELECT `cookie` FROM `".BIT_DB_PREFIX."tidbits_fortune_cookies`",array(),1,$bid);
+		//$cookie = $this->mDb->getOne("SELECT `fortune` FROM `".BIT_DB_PREFIX."tidbits_fortune_cookies` limit $bid,1"); getOne seems not to work with limit
+		$result = $this->mDb->query("SELECT `fortune` FROM `".BIT_DB_PREFIX."tidbits_fortune_cookies`",array(),1,$bid);
 		if ($res = $result->fetchRow()) {
-		$cookie = str_replace("\n", "", $res['cookie']);
-		return '<i>"' . $cookie . '"</i>';
+			$cookie = str_replace("\n", "", $res['fortune']);
+			return '<em>"'.$cookie.'"</em>';
+		} else {
+			return "";
 		}
-		else
-		return "";
 	}
 
 }
 
 /**
- * @global TagLineLib Cookie manangement library
+ * @global TagLineLib fortune manangement library
  */
 global $taglinelib;
 $taglinelib = new TagLineLib();
