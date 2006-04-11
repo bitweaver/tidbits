@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmarks.php,v 1.3 2006/02/06 22:56:51 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmarks.php,v 1.4 2006/04/11 13:10:04 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmarks.php,v 1.3 2006/02/06 22:56:51 squareing Exp $
+ * $Id: bookmarks.php,v 1.4 2006/04/11 13:10:04 squareing Exp $
  * @package users
  * @subpackage functions
  */
@@ -20,7 +20,7 @@ require_once( '../bit_setup_inc.php' );
 require_once( TIDBITS_PKG_PATH.'bookmark_lib.php' );
 
 $gBitSystem->verifyFeature( 'user_bookmarks' );
-$gBitSystem->verifyPermission( 'bit_p_create_bookmarks' );
+$gBitSystem->verifyPermission( 'p_tidbits_create_bookmarks' );
 
 if (!isset($_REQUEST["parent_id"])) {
 	$_REQUEST["parent_id"] = 0;
@@ -76,7 +76,7 @@ if (isset($_REQUEST["refreshurl"])) {
 if (isset($_REQUEST["addurl"])) {
 	
 	if( $urlid = $bookmarklib->replace_url($_REQUEST["editurl"], $_REQUEST["parent_id"], $_REQUEST["urlname"], $_REQUEST["urlurl"], $gBitUser->mUserId) ) {
-		if ($_REQUEST["editurl"] == 0 && $gBitUser->hasPermission( 'bit_p_cache_bookmarks' )) {
+		if ($_REQUEST["editurl"] == 0 && $gBitUser->hasPermission( 'p_tidbits_cache_bookmarks' )) {
 			$bookmarklib->refresh_url($urlid);
 		}
 		$gBitSmarty->assign('editurl', 0);

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/menu.php,v 1.5 2006/02/19 08:46:05 lsces Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/menu.php,v 1.6 2006/04/11 13:10:04 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: menu.php,v 1.5 2006/02/19 08:46:05 lsces Exp $
+ * $Id: menu.php,v 1.6 2006/04/11 13:10:04 squareing Exp $
  * @package users
  * @subpackage functions
  */
@@ -20,7 +20,7 @@ require_once( '../bit_setup_inc.php' );
 require_once( TIDBITS_PKG_PATH.'user_menu_lib.php' );
 
 $gBitSystem->verifyFeature( 'usermenu' );
-$gBitSystem->verifyPermission( 'bit_p_usermenu' );
+$gBitSystem->verifyPermission( 'p_tidbits_use_usermenu' );
 
 if (!isset($_REQUEST["menu_id"]))
 	$_REQUEST["menu_id"] = 0;

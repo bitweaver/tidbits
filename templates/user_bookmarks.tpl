@@ -40,7 +40,7 @@
 {section name=ix loop=$urls}
 <tr class="{cycle}">
   <td><a href="{$urls[ix].url}">{$urls[ix].name}</a>
-  {if $gBitUser->hasPermission( 'bit_p_cache_bookmarks' ) and $urls[ix].datalen > 0}
+  {if $gBitUser->hasPermission( 'p_tidbits_cache_bookmarks' ) and $urls[ix].datalen > 0}
   (<a href="{$smarty.const.TIDBITS_PKG_URL}cached_bookmark.php?urlid={$urls[ix].url_id}">{tr}cache{/tr}</a>)
   {/if}
   </td>
@@ -48,7 +48,7 @@
   <td>
     <a title="{tr}remove bookmark{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removeurl={$urls[ix].url_id}">{biticon ipackage=liberty iname="delete" iexplain="remove"}</a>
     <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editurl={$urls[ix].url_id}">{biticon ipackage=liberty iname="edit" iexplain="edit"}</a>
-    {if $gBitUser->hasPermission( 'bit_p_cache_bookmarks' ) and $urls[ix].datalen > 0}
+    {if $gBitUser->hasPermission( 'p_tidbits_cache_bookmarks' ) and $urls[ix].datalen > 0}
     <a title="{tr}refresh cache{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;refreshurl={$urls[ix].url_id}">{biticon ipackage=liberty iname="refresh" iexplain="refresh cache"}</a>
     {/if}
   </td>
