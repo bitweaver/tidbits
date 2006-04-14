@@ -42,7 +42,7 @@
 		<table><tr>
 		{section name=ix loop=$sections}
         <td>
-			<input type="checkbox" name="section[{$sections[ix]}]" id="banning-section" {if in_array($sections[ix],$info.sections)}checked="checked"{/if} /> <label for="banning-section">{$sections[ix]}</label>
+			<input type="checkbox" name="section[{$sections[ix]}]" id="tidbits_banning-section" {if in_array($sections[ix],$info.sections)}checked="checked"{/if} /> <label for="tidbits_banning-section">{$sections[ix]}</label>
         </td>
         {if not ($smarty.section.ix.rownum mod 3)}
                 {if not $smarty.section.ix.last}

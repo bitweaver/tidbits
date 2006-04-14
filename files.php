@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/files.php,v 1.5 2006/04/11 13:10:04 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/files.php,v 1.6 2006/04/14 20:25:53 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: files.php,v 1.5 2006/04/11 13:10:04 squareing Exp $
+ * $Id: files.php,v 1.6 2006/04/14 20:25:53 squareing Exp $
  * @package users
  * @subpackage functions
  */
@@ -19,7 +19,7 @@
 require_once( '../bit_setup_inc.php' );
 require_once ( TIDBITS_PKG_PATH.'userfiles_lib.php');
 
-$gBitSystem->verifyFeature( 'user_files' );
+$gBitSystem->verifyFeature( 'tidbits_userfiles' );
 $gBitSystem->verifyPermission( 'p_tidbits_upload_userfiles' );
 
 $quota = $userfileslib->userfiles_quota( $gBitUser->mUserId );
@@ -41,7 +41,7 @@ for ($i = 0; $i < 5; $i++) {
 		$name = $_FILES["userfile$i"]['name'];
 		if ($uf_use_db == 'n') {
 			$fhash = md5(uniqid('.'));
-			$fw = fopen($uf_use_dir . $fhash, "wb");
+			$fw = fopen($tidbits_userfiles_use_dir . $fhash, "wb");
 			if (!$fw) {
 				$gBitSmarty->assign('msg', tra('Cannot write to this file:'). $fhash);
 				$gBitSystem->display( 'error.tpl' );

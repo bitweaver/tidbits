@@ -2,7 +2,7 @@
 <a class="pagetitle" href="{$smarty.const.TIDBITS_PKG_URL}menu.php">{tr}User Menu{/tr}</a><br /><br />
 {include file="bitpackage:users/my_bitweaver_bar.tpl"}
 <br />
-{if $gBitSystem->isFeatureActive( 'user_bookmarks' ) and $gBitUser->hasPermission( 'p_tidbits_create_bookmarks' )}
+{if $gBitSystem->isFeatureActive( 'tidbits_bookmarks' ) and $gBitUser->hasPermission( 'p_tidbits_create_bookmarks' )}
 <a title="({tr}May need to refresh twice to see changes{/tr})" href="{$smarty.const.TIDBITS_PKG_URL}menu.php?addbk=1">{tr}Add top level bookmarks to menu{/tr}</a> 
 {/if}
 <br /><br />

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.5 2006/04/14 20:25:53 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: userfiles_lib.php,v 1.4 2006/02/06 00:11:48 squareing Exp $
+ * $Id: userfiles_lib.php,v 1.5 2006/04/14 20:25:53 squareing Exp $
  * @package users
  */
 
@@ -64,10 +64,10 @@ class UserFilesLib extends BitBase {
 		return $res;
 	}
 	function remove_userfile($user, $file_id) {
-		global $uf_use_dir;
+		global $tidbits_userfiles_use_dir;
 		$path = $this->mDb->getOne("select `path` from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=? and `file_id`=?",array($user,(int) $file_id));
 		if ($path) {
-			@unlink ($uf_use_dir . $path);
+			@unlink ($tidbits_userfiles_use_dir . $path);
 		}
 		$query = "delete from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=? and file_id=?";
 		$this->mDb->query($query,array($user,(int) $file_id));

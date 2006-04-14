@@ -2,23 +2,23 @@
 
 if ( $gBitSystem->isPackageActive('tidbits')) {
 	$formFeaturesTidbits = array(
-		'feature_tasks' => array(
+		'tidbits_tasks' => array(
 			'label' => 'User Tasks',
 			'note' => 'Make notes of tasks with due date and priority.',
 		),
-		'user_bookmarks' => array(
+		'tidbits_bookmarks' => array(
 			'label' => 'User Bookmarks',
 			'note' => 'Users can create their own list of private bookmarks.',
 		),
-		'user_files' => array(
+		'tidbits_userfiles' => array(
 			'label' => 'User Files',
 			'note' => 'Users can upload private user files.',
 		),
-		'usermenu' => array(
+		'tidbits_usermenu' => array(
 			'label' => 'User menu',
 			'note' => 'Users can customise their own menus.',
 		),
-		'banning' => array(
+		'tidbits_banning' => array(
 			'label' => 'User Banning',
 			'note' => 'Allows you to ban users from your site, based on username or IP.',
 		),
