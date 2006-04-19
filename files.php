@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/files.php,v 1.6 2006/04/14 20:25:53 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/files.php,v 1.7 2006/04/19 16:39:19 spiderr Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: files.php,v 1.6 2006/04/14 20:25:53 squareing Exp $
+ * $Id: files.php,v 1.7 2006/04/19 16:39:19 spiderr Exp $
  * @package users
  * @subpackage functions
  */
@@ -39,7 +39,7 @@ for ($i = 0; $i < 5; $i++) {
 		$data = '';
 		$fhash = '';
 		$name = $_FILES["userfile$i"]['name'];
-		if ($uf_use_db == 'n') {
+		if ( !$gBitSystem->isFeatureActive( 'users_uf_use_db' ) ) {
 			$fhash = md5(uniqid('.'));
 			$fw = fopen($tidbits_userfiles_use_dir . $fhash, "wb");
 			if (!$fw) {
@@ -49,7 +49,7 @@ for ($i = 0; $i < 5; $i++) {
 			}
 		}
 		while (!feof($fp)) {
-			if ($uf_use_db == 'y') {
+			if ( $gBitSystem->isFeatureActive( 'users_uf_use_db' ) ) {
 				$data .= fread($fp, 8192 * 16);
 			} else {
 				$data = fread($fp, 8192 * 16);
@@ -57,7 +57,7 @@ for ($i = 0; $i < 5; $i++) {
 			}
 		}
 		fclose ($fp);
-		if ($uf_use_db == 'n') {
+		if ( !$gBitSystem->isFeatureActive( 'users_uf_use_db' ) ) {
 			fclose ($fw);
 			$data = '';
 		}
