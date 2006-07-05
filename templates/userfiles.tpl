@@ -63,7 +63,7 @@
 </table>
 </form>
 
-</div> {* end .body *}
+</div><!-- end .body -->
 
 <div class="pagination">
 {if $prev_offset >= 0}
@@ -111,5 +111,5 @@
 </table>
 </form>
 
-</div> {* end .body *}
-</div> {* end .userfiles *}
+</div><!-- end .body -->
+</div><!-- end .userfiles -->

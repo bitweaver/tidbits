@@ -93,5 +93,5 @@
     </table>
 </td></tr></table>
 
-</div> {* end .body *}
+</div><!-- end .body -->
 </div> {* end .bookmarks *}
