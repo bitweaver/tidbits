@@ -1,5 +1,5 @@
 <?php
-global $gBitSystem;
+global $gBitSystem,$gBitUser;
 $registerHash = array(
 	'package_name' => 'tidbits',
 	'package_path' => dirname( __FILE__ ).'/',
