@@ -7,6 +7,6 @@
 	{if $gBitSystem->isFeatureActive( 'tidbits_banning' )}
 		<li><a class="item" href="{$smarty.const.TIDBITS_PKG_URL}admin/admin_banning.php">{tr}Banning{/tr}</a></li>
 	{/if}
-	<li><a class="item" href="{$smarty.const.TIDBITS_PKG_URL}admin/admin_tidbits_inc.php">{tr}Tidbits Settings{/tr}</a></li>
+	<li><a class="item" href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=tidbits">{tr}Tidbits Settings{/tr}</a></li>
 </ul>
 {/strip}
