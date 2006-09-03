@@ -16,7 +16,7 @@
 				{/if}
 			{/if}
 			{if $gBitSystem->isFeatureActive( 'feature_menusfolderstyle' )}
-				<li><a class="head" href="javascript:flipIcon('{$cname}');">{biticon ipackage=liberty iname="collapsed" id="`$cname`img" iexplain="folder"}{tr}{$chdata.name}{/tr}</a>
+				<li><a class="head" href="javascript:flipIcon('{$cname}');">{biticon ipackage="icons" iname="list-add" id="`$cname`img" iexplain="folder"}{tr}{$chdata.name}{/tr}</a>
 			{else}
 				<li><a class="head" href="javascript:toggle('{$cname}');">{tr}{$chdata.name}{/tr}</a>
 			{/if}

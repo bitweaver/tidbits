@@ -67,10 +67,10 @@
 					<td>{$menus[user].type}</td>
 					<td>{$menus[user].options}</td>
 					<td class="actionicon">
-						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;offset={$offset}&amp;sort_mode={$sort_mode}&amp;menu_id={$menus[user].menu_id}" title="{tr}Edit this menu{/tr}">{biticon ipackage=liberty iname="edit" iexplain="edit"}</a>
-						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=menu_options&amp;menu_id={$menus[user].menu_id}" title="{tr}Configure this menu{/tr}">{biticon ipackage=liberty iname="config" iexplain="configure"}</a>
+						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;offset={$offset}&amp;sort_mode={$sort_mode}&amp;menu_id={$menus[user].menu_id}" title="{tr}Edit this menu{/tr}">{biticon ipackage="icons" iname="accessories-text-editor" iexplain="edit"}</a>
+						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=menu_options&amp;menu_id={$menus[user].menu_id}" title="{tr}Configure this menu{/tr}">{biticon ipackage="icons" iname="document-properties" iexplain="configure"}</a>
 						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$menus[user].menu_id}" 
-							onclick="return confirm('{tr}Are you sure you want to delete this menu?{/tr}')" title="{tr}Delete this menu{/tr}">{biticon ipackage=liberty iname="delete" iexplain="remove"}</a>
+							onclick="return confirm('{tr}Are you sure you want to delete this menu?{/tr}')" title="{tr}Delete this menu{/tr}">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>
 					</td>
 				</tr>
 			{sectionelse}
