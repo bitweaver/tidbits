@@ -15,13 +15,13 @@
 					</li>
 				{/if}
 			{/if}
-			{if $gBitSystem->isFeatureActive( 'feature_menusfolderstyle' )}
+			{if $gBitSystem->isFeatureActive( 'site_menu_flip_icon' )}
 				<li><a class="head" href="javascript:flipIcon('{$cname}');">{biticon ipackage="icons" iname="list-add" id="`$cname`img" iexplain="folder"}{tr}{$chdata.name}{/tr}</a>
 			{else}
 				<li><a class="head" href="javascript:toggle('{$cname}');">{tr}{$chdata.name}{/tr}</a>
 			{/if}
 			{assign var=opensec value='y'}
-			{if $gBitSystem->isFeatureActive( 'feature_menusfolderstyle' )}
+			{if $gBitSystem->isFeatureActive( 'site_menu_flip_icon' )}
 			<script type="text/javascript">flipIcon('{$cname}');</script>
 			{/if}
 			<div {if $smarty.cookies.$cname eq 'o' or $menu_info.type eq 'e'}style="display:block;"{elseif $smarty.cookies.$cname eq 'c' or $menu_info.type eq 'd'}style="display:none;"{/if} id="{$cname}"><ul>
