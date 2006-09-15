@@ -1,5 +1,5 @@
 <div class="admin box">
-	<h3 class="boxtitle">{tr}User files{/tr}</h3>
+	<h3>{tr}User files{/tr}</h3>
 	<div class="boxcontent">
 		<form action="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=userfiles" method="post">
 		<table class="panel">
