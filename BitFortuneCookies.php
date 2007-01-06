@@ -3,7 +3,7 @@
  * Tagline Management Library
  *
  * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.4 2006/04/11 12:04:35 squareing Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.5 2007/01/06 09:46:26 squareing Exp $
  * @author awcolley
  *
  * Copyright (c) 2004 bitweaver.org
@@ -53,7 +53,7 @@ class TagLineLib extends BitBase
             $mid = "";
             $bindvars = array();
         }
-        $query = "select * from `".BIT_DB_PREFIX."tidbits_fortune_cookies` $mid order by ".$this->mDb->convert_sortmode($sort_mode);
+        $query = "select * from `".BIT_DB_PREFIX."tidbits_fortune_cookies` $mid order by ".$this->mDb->convertSortmode($sort_mode);
         $query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_fortune_cookies` $mid";
         $result = $this->mDb->query($query,$bindvars,$max_records,$offset);
         $cant = $this->mDb->getOne($query_cant,$bindvars);

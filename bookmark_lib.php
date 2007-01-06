@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.7 2006/02/19 09:30:40 lsces Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.8 2007/01/06 09:46:26 squareing Exp $
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,7 +12,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmark_lib.php,v 1.7 2006/02/19 09:30:40 lsces Exp $
+ * $Id: bookmark_lib.php,v 1.8 2007/01/06 09:46:26 squareing Exp $
  * @package users
  */
 
@@ -116,7 +116,7 @@ class BookmarkLib extends BitBase {
 		global $gBitSystem;
 		$now = $gBitSystem->getUTCTime();
 		$query = "UPDATE `".BIT_DB_PREFIX."tidbits_bookmarks_urls` SET `last_updated`=?, `data`=? WHERE `url_id`=?";
-		$result = $this->mDb->query($query,array((int) $now,BitDb::db_byte_encode( $data ),$url_id));
+		$result = $this->mDb->query($query,array((int) $now,BitDb::dbByteEncode( $data ),$url_id));
 		return true;
 	}
 	function list_folder($folder_id, $offset, $max_records, $sort_mode = 'name_asc', $find, $user_id) {
@@ -128,7 +128,7 @@ class BookmarkLib extends BitBase {
 			$mid = "";
 			$bindvars=array($folder_id,$user_id);
 		}
-		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=? AND `user_id`=? $mid ORDER BY ".$this->mDb->convert_sortmode($sort_mode);
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=? AND `user_id`=? $mid ORDER BY ".$this->mDb->convertSortmode($sort_mode);
 		$query_cant = "SELECT COUNT(*) FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` WHERE `folder_id`=? AND `user_id`=? $mid";
 		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/user_menu_lib.php,v 1.6 2006/02/19 09:30:40 lsces Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/user_menu_lib.php,v 1.7 2007/01/06 09:46:26 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: user_menu_lib.php,v 1.6 2006/02/19 09:30:40 lsces Exp $
+ * $Id: user_menu_lib.php,v 1.7 2007/01/06 09:46:26 squareing Exp $
  * @package users
  */
 
@@ -53,7 +53,7 @@ class UserMenuLib extends BitBase {
 			$mid = " ";
 			$bindvars=array($user);
 		}
-		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_menus` WHERE `user_id`=? $mid ORDER BY ".$this->mDb->convert_sortmode($sort_mode);
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_menus` WHERE `user_id`=? $mid ORDER BY ".$this->mDb->convertSortmode($sort_mode);
 		$query_cant = "SELECT COUNT(*) FROM `".BIT_DB_PREFIX."tidbits_menus` WHERE `user_id`=? $mid";
 		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);

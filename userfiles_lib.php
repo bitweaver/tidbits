@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.5 2006/04/14 20:25:53 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.6 2007/01/06 09:46:27 squareing Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: userfiles_lib.php,v 1.5 2006/04/14 20:25:53 squareing Exp $
+ * $Id: userfiles_lib.php,v 1.6 2007/01/06 09:46:27 squareing Exp $
  * @package users
  */
 
@@ -32,7 +32,7 @@ class UserFilesLib extends BitBase {
 		$now = $gBitSystem->getUTCTime();
 		$query = "insert into `".BIT_DB_PREFIX."tidbits_userfiles`(`user_id`,`name`,`filename`,`filetype`,`filesize`,`data`,`created`,`hits`,`path`)
     values(?,?,?,?,?,?,?,?,?)";
-		$this->mDb->query($query,array($user,$name,$filename,$filetype,(int) $filesize,$this->db_byte_encode($data),(int) $now,0,$path));
+		$this->mDb->query($query,array($user,$name,$filename,$filetype,(int) $filesize,$this->dbByteEncode($data),(int) $now,0,$path));
 	}
 	function list_userfiles($user, $offset, $max_records, $sort_mode, $find) {
 		if ($find) {
@@ -43,7 +43,7 @@ class UserFilesLib extends BitBase {
 			$mid = " ";
 			$bindvars=array($user);
 		}
-		$query = "select `file_id`,`user_id`,`name`,`filename`,`filetype`,`filesize`,`created`,`hits` from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=? $mid order by ".$this->mDb->convert_sortmode($sort_mode);
+		$query = "select `file_id`,`user_id`,`name`,`filename`,`filetype`,`filesize`,`created`,`hits` from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=? $mid order by ".$this->mDb->convertSortmode($sort_mode);
 		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=? $mid";
 		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
@@ -60,7 +60,7 @@ class UserFilesLib extends BitBase {
 		$query = "select * from `".BIT_DB_PREFIX."tidbits_userfiles` where `user_id`=? and `file_id`=?";
 		$result = $this->mDb->query($query,array($user,(int) $file_id));
 		$res = $result->fetchRow();
-		$res['data'] = $this->db_byte_decode( $res['data'] );
+		$res['data'] = $this->dbByteDecode( $res['data'] );
 		return $res;
 	}
 	function remove_userfile($user, $file_id) {
