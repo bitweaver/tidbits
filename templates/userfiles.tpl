@@ -50,7 +50,7 @@
 </td>
 <td>{$channels[user].filename|iconify}<a href="{$smarty.const.TIDBITS_PKG_URL}download_userfile.php?file_id={$channels[user].file_id}">{$channels[user].filename}</a></td>
 <td>{$channels[user].created|bit_short_datetime}</td>
-<td style="text-align:right;">{$channels[user].filesize|kbsize}</td>
+<td style="text-align:right;">{$channels[user].filesize|display_bytes}</td>
 </tr>
 {sectionelse}
 <tr class="panelsubmitrow">
