@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.6 2007/01/06 09:46:27 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/userfiles_lib.php,v 1.7 2008/06/19 05:02:41 lsces Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,13 +8,12 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: userfiles_lib.php,v 1.6 2007/01/06 09:46:27 squareing Exp $
- * @package users
+ * $Id: userfiles_lib.php,v 1.7 2008/06/19 05:02:41 lsces Exp $
+ * @package tidbits
  */
 
 /**
- * @package users
- * @subpackage UserFilesLib
+ * @package tidbits
  */
 class UserFilesLib extends BitBase {
 	function UserFilesLib() {

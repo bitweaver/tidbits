@@ -2,14 +2,14 @@
 /**
  * User access Banning Library
  *
- * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.5 2007/01/06 09:46:26 squareing Exp $
+ * @package tidbits
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.6 2008/06/19 05:02:41 lsces Exp $
  */
 
 /**
  * User access Banning Library
  *
- * @package kernel
+ * @package tidbits
  */
 class BanLib extends BitBase {
 	function BanLib() {				

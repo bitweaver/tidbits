@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/modules/mod_user_bookmarks.php,v 1.1 2007/06/14 19:30:47 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/modules/mod_user_bookmarks.php,v 1.2 2008/06/19 05:02:41 lsces Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,8 +8,8 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: mod_user_bookmarks.php,v 1.1 2007/06/14 19:30:47 squareing Exp $
- * @package users
+ * $Id: mod_user_bookmarks.php,v 1.2 2008/06/19 05:02:41 lsces Exp $
+ * @package tidbits
  * @subpackage modules
  */
 

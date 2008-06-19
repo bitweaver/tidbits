@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/download_userfile.php,v 1.5 2006/04/19 16:39:19 spiderr Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/download_userfile.php,v 1.6 2008/06/19 05:02:41 lsces Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,8 +8,8 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: download_userfile.php,v 1.5 2006/04/19 16:39:19 spiderr Exp $
- * @package users
+ * $Id: download_userfile.php,v 1.6 2008/06/19 05:02:41 lsces Exp $
+ * @package tidbits
  * @subpackage functions
  */
 

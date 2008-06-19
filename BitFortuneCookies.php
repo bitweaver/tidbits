@@ -2,8 +2,8 @@
 /**
  * Tagline Management Library
  *
- * @package kernel
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.5 2007/01/06 09:46:26 squareing Exp $
+ * @package tidbits
+ * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.6 2008/06/19 05:02:41 lsces Exp $
  * @author awcolley
  *
  * Copyright (c) 2004 bitweaver.org
@@ -20,7 +20,7 @@
  *
  * created 2003/06/19
  *
- * @package kernel
+ * @package tidbits
  * @todo does not need to inherit BitBase class. Should hold a BitDb connection as a
  * global variable. 
  */

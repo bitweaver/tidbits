@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.8 2007/01/06 09:46:26 squareing Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.9 2008/06/19 05:02:41 lsces Exp $
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,13 +12,12 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: bookmark_lib.php,v 1.8 2007/01/06 09:46:26 squareing Exp $
- * @package users
+ * $Id: bookmark_lib.php,v 1.9 2008/06/19 05:02:41 lsces Exp $
+ * @package tidbits
  */
 
 /**
- * @package users
- * @subpackage BookmarkLib
+ * @package tidbits
  */
 class BookmarkLib extends BitBase {
 	function BookmarkLib() {
