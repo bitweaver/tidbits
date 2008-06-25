@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/user_menu_lib.php,v 1.8 2008/06/19 05:02:41 lsces Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/user_menu_lib.php,v 1.9 2008/06/25 22:10:23 spiderr Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: user_menu_lib.php,v 1.8 2008/06/19 05:02:41 lsces Exp $
+ * $Id: user_menu_lib.php,v 1.9 2008/06/25 22:10:23 spiderr Exp $
  * @package tidbits
  */
 
@@ -54,11 +54,13 @@ class UserMenuLib extends BitBase {
 		}
 		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_menus` WHERE `user_id`=? $mid ORDER BY ".$this->mDb->convertSortmode($sort_mode);
 		$query_cant = "SELECT COUNT(*) FROM `".BIT_DB_PREFIX."tidbits_menus` WHERE `user_id`=? $mid";
-		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
-		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$ret = array();
-		while ($res = $result->fetchRow()) {
-			$ret[] = $res;
+		$cant = 0;
+		if( $result = $this->mDb->query($query,$bindvars,$max_records,$offset) ) {
+			$cant = $this->mDb->getOne($query_cant,$bindvars);
+			while ($res = $result->fetchRow()) {
+				$ret[] = $res;
+			}
 		}
 		$retval = array();
 		$retval["data"] = $ret;
