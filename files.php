@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/files.php,v 1.8 2008/06/19 05:02:41 lsces Exp $
+ * $Header: /cvsroot/bitweaver/_bit_tidbits/files.php,v 1.9 2008/06/25 22:21:26 spiderr Exp $
  *
  * Copyright (c) 2004 bitweaver.org
  * Copyright (c) 2003 tikwiki.org
@@ -8,7 +8,7 @@
  * All Rights Reserved. See copyright.txt for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details
  *
- * $Id: files.php,v 1.8 2008/06/19 05:02:41 lsces Exp $
+ * $Id: files.php,v 1.9 2008/06/25 22:21:26 spiderr Exp $
  * @package tidbits
  * @subpackage functions
  */
@@ -44,7 +44,7 @@ for ($i = 0; $i < 5; $i++) {
 			$fw = fopen($tidbits_userfiles_use_dir . $fhash, "wb");
 			if (!$fw) {
 				$gBitSmarty->assign('msg', tra('Cannot write to this file:'). $fhash);
-				$gBitSystem->display( 'error.tpl' );
+				$gBitSystem->display( 'error.tpl' , NULL, array( 'display_mode' => 'display' ));
 				die;
 			}
 		}
@@ -66,7 +66,7 @@ for ($i = 0; $i < 5; $i++) {
 		$type = $_FILES["userfile$i"]['type'];
 		if ($quota + $size > $limit) {
 			$gBitSmarty->assign('msg', tra('Cannot upload this file not enough quota'));
-			$gBitSystem->display( 'error.tpl' );
+			$gBitSystem->display( 'error.tpl' , NULL, array( 'display_mode' => 'display' ));
 			die;
 		}
 		$userfileslib->upload_userfile($gBitUser->mUserId, '', $name, $type, $size, $data, $fhash);
@@ -135,5 +135,5 @@ if ($offset > 0) {
 $gBitSmarty->assign_by_ref('channels', $channels["data"]);
 $gBitSmarty->assign('tasks_use_dates', $tasks_use_dates);
 
-$gBitSystem->display( 'bitpackage:tidbits/userfiles.tpl');
+$gBitSystem->display( 'bitpackage:tidbits/userfiles.tpl', NULL, array( 'display_mode' => 'display' ));
 ?>
