@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -17,7 +17,7 @@
 // | Reworked for Bitweaver (& Undoubtedly Screwed-Up)
 // | by: StarRider <starrrider@users.sourceforge.net>
 // +----------------------------------------------------------------------+
-// $Id: data.gauge.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.gauge.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -34,8 +34,6 @@ $pluginParams = array (
 	'description' => tra("This plugin displays a graphical GAUGE."),
 	'help_function' => 'data_gauge_help',
 	'syntax' => "{GAUGE color= bgcolor= max= value= size= perc= height= }" . tra("Description") . "{GAUGE}",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.gauge.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATAGAUGE, $pluginParams );

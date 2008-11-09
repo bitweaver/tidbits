@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -18,7 +18,7 @@
 // | by: StarRider <starrrider@sourceforge.net>
 // | Reworked from: wikiplugin_userlist.php - see deprecated code below
 // +----------------------------------------------------------------------+
-// $Id: data.userlist.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.userlist.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -36,8 +36,6 @@ $pluginParams = array (
 	'description' => tra("This plugin will displays an alphabetically sorted list of registered users. A Group Name can be included to filter Groups to be listed."),
 	'help_function' => 'data_userlist_help',
 	'syntax' => "{USERLIST num= userspage= alpha= total= email= }GroupName{USERLIST}",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.userlist.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATAUSERLIST, $pluginParams );

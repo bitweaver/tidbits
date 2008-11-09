@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -18,7 +18,7 @@
 // | by: StarRider <starrrider@sourceforge.net>
 // | Reworked from: wikiplugin_usercount.php - see deprecated code below
 // +----------------------------------------------------------------------+
-// $Id: data.usercount.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.usercount.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -36,8 +36,6 @@ $pluginParams = array (
 	'description' => tra("Will show the number of users. If a Group Name can be included to filter the Groups."),
 	'help_function' => 'data_usercount_help',
 	'syntax' => "{USERCOUNT}Group Name{USERCOUNT}",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.usercount.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATAUSERCOUNT, $pluginParams );

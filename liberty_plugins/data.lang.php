@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -18,7 +18,7 @@
 // | by: StarRider <starrrider@users.sourceforge.net>
 // | Reworked from: wikiplugin_lang.php - see deprecated code below
 // +----------------------------------------------------------------------+
-// $Id: data.lang.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.lang.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -36,8 +36,6 @@ $pluginParams = array (
 	'description' => tra("This plugin will attempt to translate the text between the ") . "{LANG}" . tra(" blocks to the current language. If the translation fails - nothing is displayed."),
 	'help_function' => 'data__lang_help',
 	'syntax' => "{LANG lang= }" . tra("Text to be translated") . "{LANG}",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.lang.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATALANG, $pluginParams );

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -23,8 +23,6 @@ if( $gBitSystem->isPackageActive( 'tidbits' ) ) {
 		'load_function' => 'data_cookie',
 		//'help_function' => 'data_cookie_help',
 		'syntax' => "{cookie}",
-		'path' => LIBERTY_PKG_PATH.'plugins/data.cookie.php',
-		//'security' => 'registered',
 		'plugin_type' => DATA_PLUGIN
 	);
 	$gLibertySystem->registerPlugin( PLUGIN_GUID_DATACOOKIE, $pluginParams );

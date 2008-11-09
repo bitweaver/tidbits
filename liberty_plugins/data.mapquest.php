@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -15,7 +15,7 @@
 // +----------------------------------------------------------------------+
 // | Author: StarRider <starrrider@users.sourceforge.net>
 // +----------------------------------------------------------------------+
-// $Id: data.mapquest.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.mapquest.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -32,8 +32,6 @@ $pluginParams = array (
 	'description' => tra("Creates an Icon link to MapQuest and/or a link to a Specific Map based on an Address."),
 	'help_function' => 'data_mapquest_help',
 	'syntax' => "{MAPQUEST icon= myicon= text= address= city= state= zip= country= title= style= }",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.mapquest.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATAMAPQUEST, $pluginParams );

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -18,7 +18,7 @@
 // | by: StarRider <starrrider@users.sourceforge.net>
 // | Reworked from: wikiplugin_article.php - see deprecated code below
 // +----------------------------------------------------------------------+
-// $Id: data.article.php,v 1.1 2008/07/11 15:14:13 squareing Exp $
+// $Id: data.article.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -38,8 +38,6 @@ $pluginParams = array (
 	'description' => tra("This plugin will display the data from a single field in the specified Article."),
 	'help_function' => 'data_article_help',
 	'syntax' => "{ARTICLE id= field=}",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.article.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATAARTICLE, $pluginParams );

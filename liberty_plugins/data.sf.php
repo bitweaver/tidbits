@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -17,7 +17,7 @@
 // | Reworked & Undoubtedly Screwed-Up for (Bitweaver)
 // | by: StarRider <starrrider@sourceforge.net>
 // +----------------------------------------------------------------------+
-// $Id: data.sf.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.sf.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -36,8 +36,6 @@ $pluginParams = array (
 	'description' => tra("Creates a link to SourceForge. Can link to the Bugs / RFEs / Patches / Support Index pages or individual items on those pages."),
 	'help_function' => 'data_sf_help',
 	'syntax' => "{SF tag= aid= groupid= atid= }",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.sf.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATASF, $pluginParams );

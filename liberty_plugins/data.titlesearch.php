@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -18,7 +18,7 @@
 // | by: StarRider <starrrider@users.sourceforge.net>
 // | Reworked from: wikiplugin_titlesearch.php - see deprecated code below
 // +----------------------------------------------------------------------+
-// $Id: data.titlesearch.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.titlesearch.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -36,8 +36,6 @@ $pluginParams = array (
 	'description' => tra("This plugin search the titles of all pages in this wiki."),
 	'help_function' => 'data_titlesearch_help',
 	'syntax' => "{TITLESEARCH search= info= exclude= noheader= }",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.titlesearch.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATATITLESEARCH, $pluginParams );

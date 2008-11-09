@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -15,7 +15,7 @@
 // +----------------------------------------------------------------------+
 // | Author: StarRider starrrider@sourceforge.net
 // +----------------------------------------------------------------------+
-// $Id: data.spytext.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.spytext.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /******************
  * Initialization *
@@ -32,8 +32,6 @@ $pluginParams = array (
 	'description' => tra("Allows text to be stored that is only visible to a List of Spys or to a Spy Agency (Group). To anyone else (except an Admin) the text is not be visible."),
 	'help_function' => 'data_spytext_help',
 	'syntax' => "{SPYTEXT spy= agency= sender= to= hidden= title= width= icon= alert= }",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.spytext.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATASPYTEXT, $pluginParams );

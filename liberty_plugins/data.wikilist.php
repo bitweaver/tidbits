@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  $Revision: 1.1 $
+ * @version  $Revision: 1.2 $
  * @package  liberty
  * @subpackage plugins_data
  */
@@ -18,7 +18,7 @@
 // | by: StarRider <starrrider@sourceforge.net>
 // | Reworked from: wikiplugin_wikilist.php - see deprecated code below
 // +----------------------------------------------------------------------+
-// $Id: data.wikilist.php,v 1.1 2008/07/08 07:21:05 spiderr Exp $
+// $Id: data.wikilist.php,v 1.2 2008/11/09 09:08:56 squareing Exp $
 
 /**
  * definitions
@@ -36,8 +36,6 @@ $pluginParams = array (
 	'description' => tra("Displays an alphabetically sorted list of WikiPages"),
 	'help_function' => 'data_wikilist_help',
 	'syntax' => "{WIKILIST num= alpha= total= list= }Group Name{WIKILIST} ",
-	'path' => LIBERTY_PKG_PATH.'plugins/data.wikilist.php',
-	'security' => 'registered',
 	'plugin_type' => DATA_PLUGIN
 );
 $gLibertySystem->registerPlugin( PLUGIN_GUID_DATAWIKILIST, $pluginParams );
