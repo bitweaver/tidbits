@@ -1,4 +1,4 @@
-{* $Header: /cvsroot/bitweaver/_bit_tidbits/modules/mod_user_bookmarks.tpl,v 1.1 2007/06/14 19:30:47 squareing Exp $ *}
+{* $Header$ *}
 {if $gBitSystem->isFeatureActive( 'user_bookmarks' ) and $gBitUser->isRegistered() and $gBitUser->hasPermission( 'p_tidbits_create_bookmarks' )}
 	{bitmodule title="$moduleTitle" name="user_bookmarks"}
 		<table class="module box">

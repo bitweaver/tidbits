@@ -1,6 +1,6 @@
 <?php
 /**
- * $Header: /cvsroot/bitweaver/_bit_tidbits/bookmark_lib.php,v 1.11 2009/10/01 14:17:06 wjames5 Exp $
+ * $Header$
  *
  * Lib for user administration, groups and permissions
  * This lib uses pear so the constructor requieres
@@ -12,7 +12,7 @@
  * All Rights Reserved. See below for details and a complete list of authors.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See http://www.gnu.org/copyleft/lesser.html for details
  *
- * $Id: bookmark_lib.php,v 1.11 2009/10/01 14:17:06 wjames5 Exp $
+ * $Id$
  * @package tidbits
  */
 

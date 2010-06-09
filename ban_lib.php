@@ -3,7 +3,7 @@
  * User access Banning Library
  *
  * @package tidbits
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/ban_lib.php,v 1.6 2008/06/19 05:02:41 lsces Exp $
+ * @version $Header$
  */
 
 /**

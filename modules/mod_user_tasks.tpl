@@ -1,4 +1,4 @@
-{* $Header: /cvsroot/bitweaver/_bit_tidbits/modules/mod_user_tasks.tpl,v 1.1 2007/06/14 19:30:47 squareing Exp $ *}
+{* $Header$ *}
 {if $gBitSystem->isFeatureActive( 'feature_tasks' ) and $gBitUser->getUserId() > 0}
 	{bitmodule title="$moduleTitle" name="user_tasks"}
 		{form action=$ownurl}

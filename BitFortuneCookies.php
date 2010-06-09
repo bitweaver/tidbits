@@ -3,7 +3,7 @@
  * Tagline Management Library
  *
  * @package tidbits
- * @version $Header: /cvsroot/bitweaver/_bit_tidbits/BitFortuneCookies.php,v 1.8 2009/10/01 14:17:06 wjames5 Exp $
+ * @version $Header$
  * @author awcolley
  *
  * Copyright (c) 2004 bitweaver.org
