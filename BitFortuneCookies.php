@@ -31,7 +31,7 @@ class TagLineLib extends BitBase
     */
     function TagLineLib()
     {
-        BitBase::BitBase();
+        parent::__construct();
     }
     /**
     * Lists stored taglines.

@@ -13,7 +13,7 @@
  */
 class BanLib extends BitBase {
 	function BanLib() {				
-	BitBase::BitBase();
+	parent::__construct();
 	}
 
 	function get_rule($ban_id) {

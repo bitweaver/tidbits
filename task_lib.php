@@ -20,7 +20,7 @@
 class TaskLib extends BitBase {
 
 	function TaskLib() {
-		BitBase::BitBase();
+		parent::__construct();
 	}
 	function get_task( $pUserId,  $task_id) {
 		$query = "SELECT * FROM `".BIT_DB_PREFIX."tidbits_tasks` WHERE `user_id`=? AND `task_id`=?";

@@ -17,7 +17,7 @@
  */
 class UserMenuLib extends BitBase {
 	function UserMenuLib() {
-		BitBase::BitBase();
+		parent::__construct();
 	}
 	function add_bk($user) {
 		$query = "SELECT tubu.`name`,`url` FROM `".BIT_DB_PREFIX."tidbits_bookmarks_urls` tubu, `".BIT_DB_PREFIX."tidbits_bookmarks_folders` tubf WHERE tubu.`folder_id`=tubf.`folder_id` AND tubf.`parent_id`=? AND tubu.`user_id`=?";

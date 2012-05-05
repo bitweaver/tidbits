@@ -17,7 +17,7 @@
  */
 class UserFilesLib extends BitBase {
 	function UserFilesLib() {
-		BitBase::BitBase();
+		parent::__construct();
 	}
 	function userfiles_quota($user) {
 		global $gBitUser;

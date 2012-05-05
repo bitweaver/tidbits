@@ -21,7 +21,7 @@
  */
 class BookmarkLib extends BitBase {
 	function BookmarkLib() {
-		BitBase::BitBase();
+		parent::__construct();
 	}
 	function get_folder_path($folder_id, $user_id) {
 		$path = '';
