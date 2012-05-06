@@ -26,13 +26,7 @@
  */
 class TagLineLib extends BitBase
 {
-    /**
-    * Stores and retrieves taglines.
-    */
-    function TagLineLib()
-    {
-        parent::__construct();
-    }
+
     /**
     * Lists stored taglines.
     * @param offset the location to begin listing from

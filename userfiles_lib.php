@@ -16,9 +16,7 @@
  * @package tidbits
  */
 class UserFilesLib extends BitBase {
-	function UserFilesLib() {
-		parent::__construct();
-	}
+
 	function userfiles_quota($user) {
 		global $gBitUser;
 		if ($gBitUser->isAdmin()) {

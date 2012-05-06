@@ -12,9 +12,6 @@
  * @package tidbits
  */
 class BanLib extends BitBase {
-	function BanLib() {				
-	parent::__construct();
-	}
 
 	function get_rule($ban_id) {
 		$query = "select * from `".BIT_DB_PREFIX."tidbits_banning` where `ban_id`=?";

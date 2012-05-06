@@ -20,9 +20,7 @@
  * @package tidbits
  */
 class BookmarkLib extends BitBase {
-	function BookmarkLib() {
-		parent::__construct();
-	}
+
 	function get_folder_path($folder_id, $user_id) {
 		$path = '';
 		$info = $this->get_folder($folder_id, $user_id);
