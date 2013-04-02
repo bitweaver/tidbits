@@ -68,7 +68,7 @@
 					<td>{$menus[user].options}</td>
 					<td class="actionicon">
 						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;offset={$offset}&amp;sort_mode={$sort_mode}&amp;menu_id={$menus[user].menu_id}" title="{tr}Edit this menu{/tr}">{booticon iname="icon-edit" ipackage="icons" iexplain="edit"}</a>
-						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=menu_options&amp;menu_id={$menus[user].menu_id}" title="{tr}Configure this menu{/tr}">{biticon ipackage="icons" iname="document-properties" iexplain="configure"}</a>
+						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=menu_options&amp;menu_id={$menus[user].menu_id}" title="{tr}Configure this menu{/tr}">{booticon iname="icon-file"  ipackage="icons"  iexplain="configure"}</a>
 						<a href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page={$page}&amp;offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$menus[user].menu_id}" 
 							onclick="return confirm('{tr}Are you sure you want to delete this menu?{/tr}')" title="{tr}Delete this menu{/tr}">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>
 					</td>

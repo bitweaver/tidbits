@@ -49,7 +49,7 @@
     <a title="{tr}remove bookmark{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removeurl={$urls[ix].url_id}">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>
     <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editurl={$urls[ix].url_id}">{booticon iname="icon-edit" ipackage="icons" iexplain="edit"}</a>
     {if $gBitUser->hasPermission( 'p_tidbits_cache_bookmarks' ) and $urls[ix].datalen > 0}
-    <a title="{tr}refresh cache{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;refreshurl={$urls[ix].url_id}">{biticon ipackage="icons" iname="view-refresh" iexplain="refresh cache"}</a>
+    <a title="{tr}refresh cache{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;refreshurl={$urls[ix].url_id}">{booticon iname="icon-recycle"  ipackage="icons"  iexplain="refresh cache"}</a>
     {/if}
   </td>
 </tr>
