@@ -16,7 +16,7 @@
 				{/if}
 			{/if}
 			{if $gBitSystem->isFeatureActive( 'site_menu_flip_icon' )}
-				<li><a class="head" href="javascript:flipIcon('{$cname}');">{biticon ipackage="icons" iname="list-add" id="`$cname`img" iexplain="folder"}{tr}{$chdata.name}{/tr}</a>
+				<li><a class="head" href="javascript:flipIcon('{$cname}');">{booticon iname="icon-plus-sign"  ipackage="icons"  id="`$cname`img" iexplain="folder"}{tr}{$chdata.name}{/tr}</a>
 			{else}
 				<li><a class="head" href="javascript:toggle('{$cname}');">{tr}{$chdata.name}{/tr}</a>
 			{/if}
