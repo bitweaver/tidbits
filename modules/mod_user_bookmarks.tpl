@@ -4,7 +4,7 @@
 		<table class="module box">
 			{section name=ix loop=$modb_folders}
 				<tr><td valign="bottom">
-					<a href="{$ownurl}{$modb_sep}bookmarks_parent={$modb_folders[ix].folder_id}">{biticon ipackage="icons" iname="folder" iexplain="folder"}</a>{$modb_folders[ix].name}
+					<a href="{$ownurl}{$modb_sep}bookmarks_parent={$modb_folders[ix].folder_id}">{booticon iname="icon-folder-close"  ipackage="icons"  iexplain="folder"}</a>{$modb_folders[ix].name}
 				</td></tr>
 			{/section}
 			{section name=ix loop=$modb_urls}

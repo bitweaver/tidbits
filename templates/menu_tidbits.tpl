@@ -7,7 +7,7 @@
 		<li><a class="item" href="{$smarty.const.TIDBITS_PKG_URL}tasks.php">{biticon iname="task-due" iexplain="Tasks" ilocation=menu}</a></li>
 	{/if}
 	{if $gBitSystem->isPackageActive( 'tidbits' ) and $gBitSystem->isFeatureActive( 'usermenu' )}
-		<li><a class="item" href="{$smarty.const.TIDBITS_PKG_URL}menu.php">{biticon iname="folder-remote" iexplain="User Mneu" ilocation=menu}</a></li>
+		<li><a class="item" href="{$smarty.const.TIDBITS_PKG_URL}menu.php">{booticon iname="icon-sitemap"   iexplain="User Mneu" ilocation=menu}</a></li>
 	{/if}
 	{if $gBitSystem->isPackageActive( 'newsreader' ) and $gBitUser->hasPermission( 'bit_p_newsreader' )}
 		<li><a class="item" href="{$smarty.const.NEWSREADER_PKG_URL}index.php">{biticon ipackage=liberty iname=spacer iexplain="Newsreader" ilocation=menu}</a></li>

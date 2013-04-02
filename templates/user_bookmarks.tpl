@@ -20,7 +20,7 @@
 {cycle values="even,odd" print=false}
 {section name=ix loop=$folders}
 <tr class="{cycle}">
-  <td><a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$folders[ix].folder_id}">{biticon ipackage="icons" iname="folder" iexplain="folder"}</a>&nbsp;{$folders[ix].name} ({$folders[ix].urls})</td>
+  <td><a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$folders[ix].folder_id}">{booticon iname="icon-folder-close"  ipackage="icons"  iexplain="folder"}</a>&nbsp;{$folders[ix].name} ({$folders[ix].urls})</td>
   <td align="right" nowrap="nowrap">
     <a title="{tr}remove folder{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removefolder={$folders[ix].folder_id}">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>
     <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editfolder={$folders[ix].folder_id}">{booticon iname="icon-edit" ipackage="icons" iexplain="edit"}</a>
