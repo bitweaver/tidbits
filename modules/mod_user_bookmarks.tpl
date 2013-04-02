@@ -13,7 +13,7 @@
 					{if $gBitUser->hasPermission( 'p_tidbits_cache_bookmarks' ) and $urls[ix].datalen > 0}
 						(<a href="{$smarty.const.USERS_PKG_URL}cached_bookmark.php?urlid={$modb_urls[ix].url_id}">{tr}cache{/tr}</a>)
 					{/if}
-					<a href="{$ownurl}{$modb_sep}bookmark_removeurl={$modb_urls[ix].url_id}">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>
+					<a href="{$ownurl}{$modb_sep}bookmark_removeurl={$modb_urls[ix].url_id}">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>
 				</td></tr>
 			{/section}
 		</table><br />

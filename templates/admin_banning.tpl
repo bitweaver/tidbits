@@ -125,7 +125,7 @@
 					{/section}
 				</td>
 				<td>
-					<a href="{$smarty.const.KERNEL_PKG_URL}admin/admin_banning.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;find={$find}&amp;remove={$items[user].ban_id}" onclick="return confirm('{tr}Are you sure you want to delete this rule?{/tr}')" title="Delete this rule">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>&nbsp;&nbsp;
+					<a href="{$smarty.const.KERNEL_PKG_URL}admin/admin_banning.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;find={$find}&amp;remove={$items[user].ban_id}" onclick="return confirm('{tr}Are you sure you want to delete this rule?{/tr}')" title="Delete this rule">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>&nbsp;&nbsp;
 				</td>
 			</tr>
 		{sectionelse}

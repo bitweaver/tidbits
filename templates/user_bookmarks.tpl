@@ -22,8 +22,8 @@
 <tr class="{cycle}">
   <td><a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$folders[ix].folder_id}">{biticon ipackage="icons" iname="folder" iexplain="folder"}</a>&nbsp;{$folders[ix].name} ({$folders[ix].urls})</td>
   <td align="right" nowrap="nowrap">
-    <a title="{tr}remove folder{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removefolder={$folders[ix].folder_id}">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>
-    <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editfolder={$folders[ix].folder_id}">{biticon ipackage="icons" iname="accessories-text-editor" iexplain="edit"}</a>
+    <a title="{tr}remove folder{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removefolder={$folders[ix].folder_id}">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>
+    <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editfolder={$folders[ix].folder_id}">{booticon iname="icon-edit" ipackage="icons" iexplain="edit"}</a>
   </td>
 </tr>
 {/section}
@@ -46,8 +46,8 @@
   </td>
   <td>{$urls[ix].url|truncate:50}</td>
   <td>
-    <a title="{tr}remove bookmark{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removeurl={$urls[ix].url_id}">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>
-    <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editurl={$urls[ix].url_id}">{biticon ipackage="icons" iname="accessories-text-editor" iexplain="edit"}</a>
+    <a title="{tr}remove bookmark{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;removeurl={$urls[ix].url_id}">{booticon iname="icon-trash" ipackage="icons" iexplain="remove"}</a>
+    <a title="{tr}edit{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editurl={$urls[ix].url_id}">{booticon iname="icon-edit" ipackage="icons" iexplain="edit"}</a>
     {if $gBitUser->hasPermission( 'p_tidbits_cache_bookmarks' ) and $urls[ix].datalen > 0}
     <a title="{tr}refresh cache{/tr}" href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;refreshurl={$urls[ix].url_id}">{biticon ipackage="icons" iname="view-refresh" iexplain="refresh cache"}</a>
     {/if}
