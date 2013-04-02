@@ -9,7 +9,7 @@
 	<div class="body">
 		{form title="Add / Edit Rule"}
 			<input type="hidden" name="page" value="{$page}" />
-			<div class="row">
+			<div class="control-group">
 				{formlabel label="Rule Title" for="banning-title"}
 				{forminput}
 					<input type="text" name="title" id="banning-title" value="{$info.title|escape}" />
@@ -17,7 +17,7 @@
 				{/forminput}
 			</div>
 
-			<div class="row">
+			<div class="control-group">
 				{formlabel label="Username regex" for="banning-userregex"}
 				{forminput}
 					<input type="radio" name="mode" value="user" {if $info.mode eq 'user'}checked="checked"{/if} />
@@ -26,7 +26,7 @@
 				{/forminput}
 			</div>
 
-			<div class="row">
+			<div class="control-group">
 				{formlabel label="IP regex" for="banning-ipregex"}
 				{forminput}
 					<input type="radio" name="mode" value="ip" {if $info.mode eq 'ip'}checked="checked"{/if} />
@@ -36,7 +36,7 @@
 			</div>
 
 {*
-			<div class="row">
+			<div class="control-group">
 				{formlabel label="Ban from Package" for=""}
 				{forminput}
 		<table><tr>
@@ -64,7 +64,7 @@
 			</div>
 *}
 
-			<div class="row">
+			<div class="control-group">
 				{formlabel label="Date Restrictions" for="banning-actdates"}
 				{forminput}
 					<label><input type="checkbox" name="use_dates" id="banning-actdates" {if $info.use_dates eq 'y'}checked="checked"{/if} /> {tr}Use Date Restrictions{/tr}</label>
@@ -74,7 +74,7 @@
 				{/forminput}
 			</div>
 
-			<div class="row">
+			<div class="control-group">
 				{formlabel label="Message" for="banning-message"}
 				{forminput}
 					<textarea rows="4" cols="50" id="banning-message" name="message">{$info.message|escape}</textarea>
@@ -82,7 +82,7 @@
 				{/forminput}
 			</div>
 
-			<div class="row submit">
+			<div class="control-group submit">
 				<input type="submit" name="save" value="{tr}Store Settings{/tr}" />
 			</div>
 		{/form}
