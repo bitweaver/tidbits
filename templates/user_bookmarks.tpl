@@ -70,7 +70,7 @@
           <td width="100%" align="right"><input type="text" name="foldername" value="{$foldername|escape}" /></td>
       </tr>
       <tr class="panelsubmitrow">
-          <td colspan="2"><input type="submit" name="addfolder" value="{tr}add{/tr}" /> <a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editfolder=0">{tr}new{/tr}</a></td>
+          <td colspan="2"><input type="submit" class="btn" name="addfolder" value="{tr}add{/tr}" /> <a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editfolder=0">{tr}new{/tr}</a></td>
       </tr>
     </table>
   </form>
@@ -87,7 +87,7 @@
           <td width="100%" align="right"><input type="text" name="urlurl" value="{$urlurl|escape}" /></td>
       </tr>
       <tr class="panelsubmitrow">
-          <td colspan="2"><input type="submit" name="addurl" value="{tr}add{/tr}" /> <a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editurl=0">{tr}new{/tr}</a></td>
+          <td colspan="2"><input type="submit" class="btn" name="addurl" value="{tr}add{/tr}" /> <a href="{$smarty.const.TIDBITS_PKG_URL}bookmarks.php?parent_id={$parent_id}&amp;editurl=0">{tr}new{/tr}</a></td>
       </tr>
       </form>
     </table>

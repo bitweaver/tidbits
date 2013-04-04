@@ -51,12 +51,12 @@
 
 				<tr>
 					<td colspan="4">
-						<input type="submit" name="delete" value="{tr}Delete{/tr}" />
-						<input type="submit" name="complete" value="{tr}Done{/tr}" />
-						<input type="submit" name="open" value="{tr}Not Done{/tr}" />
+						<input type="submit" class="btn" name="delete" value="{tr}Delete{/tr}" />
+						<input type="submit" class="btn" name="complete" value="{tr}Done{/tr}" />
+						<input type="submit" class="btn" name="open" value="{tr}Not Done{/tr}" />
 					</td>
 					<td align="right">
-						<input type="submit" name="update" value="{tr}Update{/tr}" />
+						<input type="submit" class="btn" name="update" value="{tr}Update{/tr}" />
 					</td>
 				</tr>
 			</table>
@@ -130,7 +130,7 @@
 			</div>
 
 			<div class="control-group submit">
-				<input type="submit" name="save" value="{tr}Save{/tr}" />
+				<input type="submit" class="btn" name="save" value="{tr}Save{/tr}" />
 			</div>
 		{/form}
 
