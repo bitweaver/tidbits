@@ -39,9 +39,9 @@ if ($gBitUser->getUserId() > 0 && $gBitSystem->isFeatureActive('feature_tasks') 
 		$tasklib->replace_task($gBitUser->getUserId(), 0, $_REQUEST['modTasksTitle'], $_REQUEST['modTasksTitle'], $gBitSystem->getUTCTime(), 'o', 3, 0, 0);
 	}
 	$ownurl =/*httpPrefix().*/ $_SERVER["REQUEST_URI"];
-	$gBitSmarty->assign('ownurl', $ownurl);
+	$_template->tpl_vars['ownurl'] = new Smarty_variable( $ownurl);
 	$tasks_use_dates = $gBitUser->getPreference('tasks_use_dates');
 	$modTasks = $tasklib->list_tasks($gBitUser->getUserId(), 0, -1, 'priority_desc', '', $tasks_use_dates, $pdate);
-	$gBitSmarty->assign('modTasks', $modTasks['data']);
+	$_template->tpl_vars['modTasks'] = new Smarty_variable( $modTasks['data']);
 }
 ?>

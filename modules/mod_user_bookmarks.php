@@ -31,7 +31,7 @@ if( $gBitSystem->isFeatureActive( 'user_bookmarks' ) && $gBitUser->isRegistered(
 	}
 
 	// check the session to get the parent or create parent =0
-	$gBitSmarty->assign('ownurl', httpPrefix(). $_SERVER["REQUEST_URI"]);
+	$_template->tpl_vars['ownurl'] = new Smarty_variable( httpPrefix(). $_SERVER["REQUEST_URI"]);
 	if (!isset($_SESSION["bookmarks_parent"])) {
 		$_SESSION["bookmarks_parent"] = 0;
 	}
@@ -45,7 +45,7 @@ if( $gBitSystem->isFeatureActive( 'user_bookmarks' ) && $gBitUser->isRegistered(
 	} else {
 		$modb_sep = '?';
 	}
-	$gBitSmarty->assign('modb_sep', $modb_sep);
+	$_template->tpl_vars['modb_sep'] = new Smarty_variable( $modb_sep);
 	if (isset($_REQUEST["bookmark_removeurl"])) {
 		$bookmarklib->remove_url($_REQUEST["bookmark_removeurl"], $gBitUser->mUserId );
 		header( 'Location: '.$_SERVER['HTTP_REFERER'] );
@@ -71,7 +71,7 @@ if( $gBitSystem->isFeatureActive( 'user_bookmarks' ) && $gBitUser->isRegistered(
 	$modb_father = $modb_p_info["parent_id"];
 	// get folders for the parent
 	$modb_urls = $bookmarklib->list_folder($_SESSION["bookmarks_parent"], 0, -1, 'name_asc', '', $gBitUser->mUserId );
-	$gBitSmarty->assign('modb_urls', $modb_urls["data"]);
+	$_template->tpl_vars['modb_urls'] = new Smarty_variable( $modb_urls["data"]);
 	$modb_folders = $bookmarklib->get_child_folders($_SESSION["bookmarks_parent"], $gBitUser->mUserId );
 	$modb_pf = array(
 		"name" => "..",
@@ -83,7 +83,7 @@ if( $gBitSystem->isFeatureActive( 'user_bookmarks' ) && $gBitUser->isRegistered(
 	if ($_SESSION["bookmarks_parent"]) {
 		$modb_folders = array_merge($modb_pfs, $modb_folders);
 	}
-	$gBitSmarty->assign('modb_folders', $modb_folders);
+	$_template->tpl_vars['modb_folders'] = new Smarty_variable( $modb_folders);
 // get urls for the parent
 }
 ?>
