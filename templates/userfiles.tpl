@@ -10,7 +10,7 @@
 
 <h2>{tr}User Files{/tr}</h2>
 
-<table class="data">
+<table class="table data">
 	<tr>
 		<th colspan='2'>
 			<small>{tr}quota{/tr}</small>

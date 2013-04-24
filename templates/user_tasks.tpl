@@ -19,7 +19,7 @@
 		{minifind}
 
 		{form}
-			<table class="data">
+			<table class="table data">
 				<caption>{tr}Your Tasks{/tr}</caption>
 				<tr>
 					<th style="width:2%;">&nbsp;</th>
