@@ -58,7 +58,7 @@
 </tr>
 {/section}
 <tr class="panelsubmitrow">
-<td colspan="4"><input type="submit" class="btn" name="delete" value="{tr}delete{/tr}" /></td>
+<td colspan="4"><input type="submit" class="btn btn-default" name="delete" value="{tr}delete{/tr}" /></td>
 </tr>
 </table>
 </form>
@@ -105,7 +105,7 @@
  </td></tr><tr><td colspan="2">
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000000000" /><input size="25" name="userfile5" type="file" />
   </td></tr><tr class="panelsubmitrow"><td colspan="3">
-    <input type="submit" class="btn" name="upload" value="{tr}upload{/tr}" />
+    <input type="submit" class="btn btn-default" name="upload" value="{tr}upload{/tr}" />
   </td>
 </tr>
 </table>

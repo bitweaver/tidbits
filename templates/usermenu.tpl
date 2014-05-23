@@ -11,7 +11,7 @@
    <td>
    <form method="get" action="{$smarty.const.TIDBITS_PKG_URL}menu.php">
      <input type="text" name="find" value="{$find|escape}" />
-     <input type="submit" class="btn" value="{tr}find{/tr}" name="search" />
+     <input type="submit" class="btn btn-default" value="{tr}find{/tr}" name="search" />
      <input type="hidden" name="sort_mode" value="{$sort_mode|escape}" />
    </form>
    </td>
@@ -20,7 +20,7 @@
 <form action="{$smarty.const.TIDBITS_PKG_URL}menu.php" method="post">
 <table class="panel">
 <tr>
-<td  class="heading"><input type="submit" class="btn" name="delete" value="Delete" title="{tr}delete selected{/tr}" /></td>
+<td  class="heading"><input type="submit" class="btn btn-default" name="delete" value="Delete" title="{tr}delete selected{/tr}" /></td>
 <td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'menu_position_desc'}menu_position_asc{else}menu_position_desc{/if}">{tr}Pos{/tr}</a></td>
 <td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'name_desc'}name_asc{else}name_desc{/if}">{tr}Name{/tr}</a></td>
 <td class="heading"><a href="{$smarty.const.TIDBITS_PKG_URL}menu.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'url_desc'}url_asc{else}url_desc{/if}">{tr}URL{/tr}</a></td>
@@ -80,7 +80,7 @@
       </td>
   </tr>
   <tr class="panelsubmitrow">
-    <td colspan="2"><input type="submit" class="btn" name="save" value="{tr}save{/tr}" /></td>
+    <td colspan="2"><input type="submit" class="btn btn-default" name="save" value="{tr}save{/tr}" /></td>
   </tr>
 </table>
 </form>

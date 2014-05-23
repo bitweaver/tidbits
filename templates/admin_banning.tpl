@@ -83,7 +83,7 @@
 			</div>
 
 			<div class="control-group submit">
-				<input type="submit" class="btn" name="save" value="{tr}Store Settings{/tr}" />
+				<input type="submit" class="btn btn-default" name="save" value="{tr}Store Settings{/tr}" />
 			</div>
 		{/form}
 	</div><!-- end .body -->
@@ -101,7 +101,7 @@
 	<table>
 		<caption>{tr}Existing Banning Rules{/tr}</caption>
 		<tr>
-			<th style="width:1px"><input type="submit" class="btn" name="del" value="{tr}Delete{/tr} " /></th>
+			<th style="width:1px"><input type="submit" class="btn btn-default" name="del" value="{tr}Delete{/tr} " /></th>
 			<th>{tr}Title{/tr}</th>
 			<th>{tr}User/IP{/tr}</th>
 			<th>{tr}Sections{/tr}</th>
