@@ -12,7 +12,7 @@
 		{form legend="Edit/Create new Menu"}
 			<input type="hidden" name="page" value="{$page}" />
 			<input type="hidden" name="menu_id" value="{$menu_id|escape}" />
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Name" for="menus_name"}
 				{forminput}
 					<input type="text" name="name" id="menus_name" value="{$name|escape}" />
@@ -20,7 +20,7 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Description" for="menus_desc"}
 				{forminput}
 					<textarea name="description" id="menus_desc" rows="4" cols="50">{$description|escape}</textarea>
@@ -28,7 +28,7 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Type" for="menus_type"}
 				{forminput}
 					<select name="type" id="menus_type">
@@ -40,7 +40,7 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group submit">
+			<div class="form-group submit">
 				<input type="submit" class="btn btn-default" name="save" value="{tr}Save{/tr}" />
 			</div>
 		{/form}
@@ -86,7 +86,7 @@
 		{form legend="Global Menu Settings"}
 			<input type="hidden" name="page" value="{$page}" />
 			{foreach from=$formMenuFeatures key=feature item=output}
-				<div class="control-group">
+				<div class="form-group">
 					{formlabel label=$output.label for=$feature}
 					{forminput}
 						{html_checkboxes name="$feature" values="y" checked=$gBitSystem->getConfig($feature) labels=false id=$feature}
@@ -94,7 +94,7 @@
 					{/forminput}
 				</div>
 			{/foreach}
-			<div class="control-group submit">
+			<div class="form-group submit">
 				<input type="submit" class="btn btn-default" name="menu_features" value="{tr}Change preferences{/tr}" />
 			</div>
 		{/form}

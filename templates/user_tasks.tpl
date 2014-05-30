@@ -73,28 +73,28 @@
 			<input type="hidden" name="Date_Year" value="{$Date_Year}" />
 
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Title" for="title"}
 				{forminput}
 					<input type="text" name="title" id="title" value="{$info.title|escape}" />
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Description" for="description"}
 				{forminput}
 					<textarea rows="10" cols="50" id="description" name="description">{$info.description|escape}</textarea>
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Start Date"}
 				{forminput}
 					{html_select_date time=$info.date end_year="+1"}
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Status" for="status"}
 				{forminput}
 					<select name="status" id="status">
@@ -108,7 +108,7 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Priority" for="priority"}
 				{forminput}
 					<select name="priority" id="priority">
@@ -122,14 +122,14 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Percentage Completed" for="percentage"}
 				{forminput}
 					{html_options values="$comp_array" output="$comp_array_p" name=percentage selected="$info.percentage" id=percentage}
 				{/forminput}
 			</div>
 
-			<div class="control-group submit">
+			<div class="form-group submit">
 				<input type="submit" class="btn btn-default" name="save" value="{tr}Save{/tr}" />
 			</div>
 		{/form}
